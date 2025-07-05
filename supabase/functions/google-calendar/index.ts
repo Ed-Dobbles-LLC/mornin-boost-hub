@@ -32,16 +32,24 @@ serve(async (req) => {
       throw new Error('Google Calendar API key not configured');
     }
 
+    // Get the request body to check for calendar ID
+    let calendarId = 'primary'; // default to primary
+    
+    try {
+      const body = await req.json();
+      if (body.calendarId) {
+        calendarId = body.calendarId;
+      }
+    } catch {
+      // No body or invalid JSON, use default
+    }
+
     // Get today's date range
     const today = new Date();
     const startOfDay = new Date(today.setHours(0, 0, 0, 0));
     const endOfDay = new Date(today.setHours(23, 59, 59, 999));
 
-    // For now, we'll use the primary calendar. In production, you might want to
-    // specify a particular calendar ID or implement OAuth for private calendars
-    const calendarId = 'primary';
-    
-    const url = new URL('https://www.googleapis.com/calendar/v3/calendars/' + calendarId + '/events');
+    const url = new URL(`https://www.googleapis.com/calendar/v3/calendars/${encodeURIComponent(calendarId)}/events`);
     url.searchParams.set('key', apiKey);
     url.searchParams.set('timeMin', startOfDay.toISOString());
     url.searchParams.set('timeMax', endOfDay.toISOString());
@@ -49,29 +57,63 @@ serve(async (req) => {
     url.searchParams.set('orderBy', 'startTime');
     url.searchParams.set('maxResults', '10');
 
-    console.log('Fetching calendar events for today:', {
+    console.log('Fetching calendar events:', {
+      calendarId,
       timeMin: startOfDay.toISOString(),
-      timeMax: endOfDay.toISOString()
+      timeMax: endOfDay.toISOString(),
+      url: url.toString()
     });
 
     const response = await fetch(url.toString());
     
     if (!response.ok) {
       const errorText = await response.text();
-      console.error('Google Calendar API error:', response.status, errorText);
+      console.error('Google Calendar API error:', {
+        status: response.status,
+        statusText: response.statusText,
+        error: errorText,
+        calendarId
+      });
       
       if (response.status === 403) {
-        throw new Error('Calendar access forbidden. You may need to enable the Google Calendar API or set up OAuth for private calendars.');
+        return new Response(
+          JSON.stringify({
+            error: 'CALENDAR_ACCESS_FORBIDDEN',
+            message: 'Cannot access private calendar with API key. You need either a public calendar or OAuth 2.0 setup for private calendars.',
+            events: [],
+            date: today.toISOString().split('T')[0],
+            calendarId
+          }),
+          {
+            status: 200, // Return 200 to handle gracefully on frontend
+            headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+          }
+        );
       }
       
-      throw new Error(`Calendar API error: ${response.status}`);
+      if (response.status === 404) {
+        return new Response(
+          JSON.stringify({
+            error: 'CALENDAR_NOT_FOUND',
+            message: `Calendar '${calendarId}' not found or not accessible.`,
+            events: [],
+            date: today.toISOString().split('T')[0],
+            calendarId
+          }),
+          {
+            status: 200,
+            headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+          }
+        );
+      }
+      
+      throw new Error(`Calendar API error: ${response.status} - ${errorText}`);
     }
 
     const data = await response.json();
-    
     const events: CalendarEvent[] = data.items || [];
     
-    console.log(`Found ${events.length} events for today`);
+    console.log(`Successfully fetched ${events.length} events for calendar '${calendarId}'`);
 
     return new Response(
       JSON.stringify({
@@ -83,7 +125,8 @@ serve(async (req) => {
           description: event.description,
           location: event.location
         })),
-        date: today.toISOString().split('T')[0]
+        date: today.toISOString().split('T')[0],
+        calendarId
       }),
       {
         headers: { ...corsHeaders, 'Content-Type': 'application/json' },
@@ -95,12 +138,13 @@ serve(async (req) => {
     
     return new Response(
       JSON.stringify({ 
-        error: error.message,
+        error: 'FUNCTION_ERROR',
+        message: error.message,
         events: [],
         date: new Date().toISOString().split('T')[0]
       }),
       {
-        status: 500,
+        status: 200, // Return 200 to handle gracefully on frontend
         headers: { ...corsHeaders, 'Content-Type': 'application/json' },
       }
     );

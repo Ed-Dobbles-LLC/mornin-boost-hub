@@ -41,7 +41,7 @@ export const CalendarBox = () => {
         setCalendarData({ 
           events: [], 
           date: new Date().toISOString().split('T')[0], 
-          error: `Function error: ${error.message || 'Unknown error'}` 
+          error: data?.error || `Function error: ${error.message || 'Unknown error'}` 
         });
         return;
       }
@@ -119,11 +119,30 @@ export const CalendarBox = () => {
               <p className="text-muted-foreground">Loading calendar events...</p>
             </div>
           ) : calendarData.error ? (
-            <div className="bg-gradient-subtle p-6 rounded-lg border border-border/30 text-center">
-              <p className="text-destructive mb-2">⚠️ {calendarData.error}</p>
-              <p className="text-sm text-muted-foreground">
-                Make sure Google Calendar API is enabled and configured properly.
-              </p>
+            <div className="bg-gradient-subtle p-6 rounded-lg border border-border/30">
+              {calendarData.error === 'CALENDAR_ACCESS_FORBIDDEN' ? (
+                <div className="text-center">
+                  <p className="text-amber-600 font-medium mb-3">🔒 Private Calendar Detected</p>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    Your personal calendar requires OAuth 2.0 authentication, not just an API key.
+                  </p>
+                  <div className="space-y-2 text-sm text-left">
+                    <p className="font-medium">Options to fix this:</p>
+                    <ul className="list-disc list-inside space-y-1 text-muted-foreground">
+                      <li>Make your calendar public (not recommended for personal calendars)</li>
+                      <li>Use a specific public calendar ID instead of 'primary'</li>
+                      <li>Set up OAuth 2.0 authentication (more complex but secure)</li>
+                    </ul>
+                  </div>
+                </div>
+              ) : (
+                <div className="text-center">
+                  <p className="text-destructive mb-2">⚠️ {calendarData.error}</p>
+                  <p className="text-sm text-muted-foreground">
+                    Check Google Calendar API configuration.
+                  </p>
+                </div>
+              )}
             </div>
           ) : calendarData.events.length === 0 ? (
             <div className="bg-gradient-subtle p-6 rounded-lg border border-border/30 text-center">
