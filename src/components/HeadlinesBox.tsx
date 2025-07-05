@@ -163,7 +163,7 @@ export const HeadlinesBox = () => {
         </div>
         
         <div className="text-center text-xs text-muted-foreground mt-4">
-          Powered by BBC News RSS
+          Powered by Hacker News API
         </div>
       </CardContent>
     </Card>

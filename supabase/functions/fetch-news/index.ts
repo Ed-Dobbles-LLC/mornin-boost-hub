@@ -22,66 +22,40 @@ serve(async (req) => {
   }
 
   try {
-    console.log('Fetching news from The Guardian API...');
+    console.log('Fetching news from Hacker News API...');
     
-    // Use The Guardian's free API (no key required for basic access)
-    const response = await fetch('https://content.guardianapis.com/search?order-by=newest&show-fields=headline,trailText,webUrl&page-size=6&api-key=test');
+    // Use Hacker News API which is reliable and has no CORS issues
+    const topStoriesResponse = await fetch('https://hacker-news.firebaseio.com/v0/topstories.json');
     
-    if (!response.ok) {
-      console.log('Guardian API failed, trying alternative source...');
-      // Try alternative RSS feed
-      const rssResponse = await fetch('https://rss.cnn.com/rss/edition.rss');
-      if (!rssResponse.ok) {
-        throw new Error(`Failed to fetch news: ${response.status}`);
-      }
-      
-      const xmlText = await rssResponse.text();
-      const parser = new DOMParser();
-      const xmlDoc = parser.parseFromString(xmlText, 'text/xml');
-      const items = xmlDoc.querySelectorAll('item');
-      
-      const articles: Article[] = Array.from(items).slice(0, 6).map(item => {
-        const title = item.querySelector('title')?.textContent || 'No title';
-        const description = item.querySelector('description')?.textContent || 'No description';
-        const link = item.querySelector('link')?.textContent || '#';
-        const pubDate = item.querySelector('pubDate')?.textContent || new Date().toISOString();
-        
-        return {
-          title: title.trim(),
-          description: description.replace(/<[^>]*>/g, '').trim().substring(0, 200),
-          url: link,
-          publishedAt: pubDate,
-          source: { name: 'CNN' }
-        };
-      });
-      
-      console.log(`Returning ${articles.length} articles from CNN RSS`);
-      return new Response(
-        JSON.stringify({
-          articles,
-          success: true,
-          timestamp: new Date().toISOString()
-        }),
-        {
-          headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+    if (!topStoriesResponse.ok) {
+      throw new Error(`Failed to fetch top stories: ${topStoriesResponse.status}`);
+    }
+    
+    const topStories = await topStoriesResponse.json();
+    const storyIds = topStories.slice(0, 6); // Get top 6 stories
+    
+    // Fetch details for each story
+    const articles: Article[] = [];
+    
+    for (const id of storyIds) {
+      try {
+        const storyResponse = await fetch(`https://hacker-news.firebaseio.com/v0/item/${id}.json`);
+        if (storyResponse.ok) {
+          const story = await storyResponse.json();
+          if (story && story.title) {
+            articles.push({
+              title: story.title,
+              description: story.text ? story.text.substring(0, 200).replace(/<[^>]*>/g, '') + '...' : 'Latest tech and startup news from Hacker News',
+              url: story.url || `https://news.ycombinator.com/item?id=${story.id}`,
+              publishedAt: new Date(story.time * 1000).toISOString(),
+              source: { name: 'Hacker News' }
+            });
+          }
         }
-      );
+      } catch (error) {
+        console.log(`Failed to fetch story ${id}:`, error);
+      }
     }
-    
-    const data = await response.json();
-    console.log('Guardian API response received');
-    
-    if (!data.response || !data.response.results) {
-      throw new Error('Invalid response format from Guardian API');
-    }
-    
-    const articles: Article[] = data.response.results.map((item: any) => ({
-      title: item.webTitle || 'No title',
-      description: item.fields?.trailText || item.webTitle || 'No description available',
-      url: item.webUrl || '#',
-      publishedAt: item.webPublicationDate || new Date().toISOString(),
-      source: { name: 'The Guardian' }
-    }));
 
     console.log(`Returning ${articles.length} articles`);
 
