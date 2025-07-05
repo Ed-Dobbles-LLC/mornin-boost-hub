@@ -87,8 +87,8 @@ const Index = () => {
         </div>
 
         {/* Middle Row - Recipe and Facts */}
-        <div className="grid lg:grid-cols-2 gap-8 mb-8">
-          <div>
+        <div className="grid lg:grid-cols-2 gap-8 mb-8 items-stretch">
+          <div className="flex flex-col">
             <div className="flex justify-between items-center mb-4">
               <h2 className="text-xl font-semibold text-card-foreground">
                 Healthy Recipe
@@ -97,13 +97,17 @@ const Index = () => {
                 Next Recipe
               </Button>
             </div>
-            {recipe ? (
-              <RecipeCard recipe={recipe} />
-            ) : (
-              <div className="flex items-center justify-center h-64 bg-muted rounded-lg">
-                <p className="text-muted-foreground">Loading recipe...</p>
-              </div>
-            )}
+            <div className="flex-1">
+              {recipe ? (
+                <div className="h-full">
+                  <RecipeCard recipe={recipe} />
+                </div>
+              ) : (
+                <div className="flex items-center justify-center h-full bg-muted rounded-lg min-h-96">
+                  <p className="text-muted-foreground">Loading recipe...</p>
+                </div>
+              )}
+            </div>
           </div>
           
           <div className="space-y-6">

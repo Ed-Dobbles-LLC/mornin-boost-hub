@@ -29,7 +29,7 @@ export const RecipeCard = ({ recipe }: RecipeCardProps) => {
   }, [recipe]);
 
   return (
-    <Card className="shadow-soft hover:shadow-elevated transition-all duration-300 border-border/50">
+    <Card className="shadow-soft hover:shadow-elevated transition-all duration-300 border-border/50 h-full flex flex-col">
       <div className="relative">
         <img 
           src={recipe.strMealThumb} 
@@ -62,10 +62,10 @@ export const RecipeCard = ({ recipe }: RecipeCardProps) => {
         </div>
       </CardHeader>
       
-      <CardContent className="space-y-4">
-        <div>
+      <CardContent className="space-y-4 flex-1 flex flex-col">
+        <div className="flex-1">
           <h4 className="font-semibold text-card-foreground mb-2">Instructions</h4>
-          <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3">
+          <p className="text-sm text-muted-foreground leading-relaxed line-clamp-6">
             {recipe.strInstructions}
           </p>
         </div>
@@ -73,15 +73,15 @@ export const RecipeCard = ({ recipe }: RecipeCardProps) => {
         <div>
           <h4 className="font-semibold text-card-foreground mb-2">Ingredients</h4>
           <ul className="text-sm text-muted-foreground space-y-1">
-            {ingredients.slice(0, 5).map((item, index) => (
+            {ingredients.slice(0, 6).map((item, index) => (
               <li key={index} className="flex items-start">
                 <span className="text-overproof-red mr-2">•</span>
                 {item.meas} {item.ing}
               </li>
             ))}
-            {ingredients.length > 5 && (
+            {ingredients.length > 6 && (
               <li className="text-overproof-red font-medium">
-                +{ingredients.length - 5} more ingredients
+                +{ingredients.length - 6} more ingredients
               </li>
             )}
           </ul>
