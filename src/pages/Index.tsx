@@ -2,6 +2,7 @@ import { LaunchButtons } from "@/components/LaunchButtons";
 import { RecipeCard, Recipe } from "@/components/RecipeCard";
 import { VocabBox } from "@/components/VocabBox";
 import { FactBox } from "@/components/FactBox";
+import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/morning-hero.jpg";
 import { useState, useEffect } from "react";
 
@@ -96,9 +97,14 @@ const Index = () => {
         {/* Middle Row - Recipe and Facts */}
         <div className="grid lg:grid-cols-2 gap-8 mb-8">
           <div>
-            <h2 className="text-xl font-semibold text-card-foreground mb-4">
-              Healthy Recipe
-            </h2>
+            <div className="flex justify-between items-center mb-4">
+              <h2 className="text-xl font-semibold text-card-foreground">
+                Healthy Recipe
+              </h2>
+              <Button onClick={fetchRecipe} className="bg-overproof-blue text-white hover:scale-105 transition-transform">
+                Next Recipe
+              </Button>
+            </div>
             {recipe ? (
               <RecipeCard recipe={recipe} />
             ) : (
