@@ -1,13 +1,27 @@
 import { LaunchButtons } from "@/components/LaunchButtons";
-import { RecipeCarousel } from "@/components/RecipeCarousel";
+import { RecipeCard, Recipe } from "@/components/RecipeCard";
 import { VocabBox } from "@/components/VocabBox";
 import { FactBox } from "@/components/FactBox";
-import { mockVocabPairs, mockFacts } from "@/data/mockData";
 import heroImage from "@/assets/morning-hero.jpg";
 import { useState, useEffect } from "react";
 
+// pick from these healthy categories
+const CATEGORIES = ['Vegetarian', 'Vegan', 'Seafood'];
+
+const SPANISH_VOCAB = [
+  { spanish: 'Hola', english: 'Hello' },
+  { spanish: 'Gracias', english: 'Thank you' },
+  { spanish: 'Por favor', english: 'Please' },
+  { spanish: 'Buenos días', english: 'Good morning' },
+  { spanish: 'Buenas noches', english: 'Good night' },
+  { spanish: '¿Cómo estás?', english: 'How are you?' },
+  { spanish: 'Muy bien', english: 'Very well' },
+  { spanish: 'De nada', english: 'You\'re welcome' },
+];
+
 const Index = () => {
   const [greeting, setGreeting] = useState("");
+  const [recipe, setRecipe] = useState<Recipe | null>(null);
 
   useEffect(() => {
     const updateGreeting = () => {
@@ -22,7 +36,31 @@ const Index = () => {
     };
 
     updateGreeting();
-    const interval = setInterval(updateGreeting, 60000); // Update every minute
+    const interval = setInterval(updateGreeting, 60000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const fetchRecipe = async () => {
+    try {
+      const cat = CATEGORIES[Math.floor(Math.random() * CATEGORIES.length)];
+      const listRes = await fetch(
+        `https://www.themealdb.com/api/json/v1/1/filter.php?c=${cat}`
+      );
+      const { meals } = await listRes.json();
+      const pick = meals[Math.floor(Math.random() * meals.length)];
+      const detailRes = await fetch(
+        `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${pick.idMeal}`
+      );
+      const { meals: full } = await detailRes.json();
+      setRecipe(full[0]);
+    } catch (e) {
+      console.error('Failed to fetch recipe', e);
+    }
+  };
+
+  useEffect(() => {
+    fetchRecipe();
+    const interval = setInterval(fetchRecipe, 20000);
     return () => clearInterval(interval);
   }, []);
 
@@ -52,17 +90,30 @@ const Index = () => {
         {/* Top Row - Launch Buttons and Vocabulary (Same Size) */}
         <div className="grid lg:grid-cols-2 gap-8 mb-8">
           <LaunchButtons />
-          <VocabBox vocabPairs={mockVocabPairs} />
+          <VocabBox vocabPairs={SPANISH_VOCAB} />
         </div>
 
-        {/* Facts Box - Full Width */}
-        <div className="mb-8">
-          <FactBox facts={mockFacts} />
-        </div>
-
-        {/* Recipe Section - Full Width */}
-        <div>
-          <RecipeCarousel />
+        {/* Middle Row - Recipe and Facts */}
+        <div className="grid lg:grid-cols-2 gap-8 mb-8">
+          <div>
+            <h2 className="text-xl font-semibold text-card-foreground mb-4">
+              Healthy Recipe
+            </h2>
+            {recipe ? (
+              <RecipeCard recipe={recipe} />
+            ) : (
+              <div className="flex items-center justify-center h-64 bg-muted rounded-lg">
+                <p className="text-muted-foreground">Loading recipe...</p>
+              </div>
+            )}
+          </div>
+          
+          <div>
+            <h2 className="text-xl font-semibold text-card-foreground mb-4">
+              Random Facts
+            </h2>
+            <FactBox />
+          </div>
         </div>
       </div>
 
