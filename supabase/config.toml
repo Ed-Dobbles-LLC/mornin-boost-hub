@@ -1,3 +1,5 @@
 project_id = "xyulaaievgvkfrwwhgrw"
 
 [functions.google-calendar]
+
+[functions.fetch-news]

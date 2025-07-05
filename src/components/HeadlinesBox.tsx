@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Newspaper, RefreshCw, ExternalLink } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 
 interface Article {
   title: string;
@@ -22,25 +23,24 @@ export const HeadlinesBox = () => {
     try {
       setLoading(true);
       setError(null);
+      console.log('Fetching headlines from edge function...');
       
-      // Using RSS feed proxy for BBC News
-      const response = await fetch('https://feeds.bbci.co.uk/news/rss.xml');
-      const text = await response.text();
+      const { data, error } = await supabase.functions.invoke('fetch-news');
       
-      // Simple XML parsing for RSS
-      const parser = new DOMParser();
-      const xml = parser.parseFromString(text, 'text/xml');
-      const items = xml.querySelectorAll('item');
+      if (error) {
+        console.error('News function error:', error);
+        setError('Failed to load headlines');
+        return;
+      }
+
+      console.log('News data received:', data);
       
-      const headlines: Article[] = Array.from(items).slice(0, 6).map(item => ({
-        title: item.querySelector('title')?.textContent || 'No title',
-        description: item.querySelector('description')?.textContent || 'No description',
-        url: item.querySelector('link')?.textContent || '#',
-        publishedAt: item.querySelector('pubDate')?.textContent || '',
-        source: { name: 'BBC News' }
-      }));
-      
-      setArticles(headlines);
+      if (data.success) {
+        setArticles(data.articles);
+      } else {
+        setError('News service temporarily unavailable');
+        setArticles(data.articles); // Use fallback articles
+      }
     } catch (err) {
       console.error('Error fetching headlines:', err);
       setError('Failed to load headlines');
