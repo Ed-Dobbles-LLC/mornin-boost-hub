@@ -9,7 +9,27 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
-      [_ in never]: never
+      vocabulary: {
+        Row: {
+          created_at: string
+          english: string
+          id: string
+          spanish: string
+        }
+        Insert: {
+          created_at?: string
+          english: string
+          id?: string
+          spanish: string
+        }
+        Update: {
+          created_at?: string
+          english?: string
+          id?: string
+          spanish?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

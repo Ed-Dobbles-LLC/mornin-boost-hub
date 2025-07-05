@@ -9,17 +9,6 @@ import { useState, useEffect } from "react";
 // pick from these healthy categories
 const CATEGORIES = ['Vegetarian', 'Vegan', 'Seafood'];
 
-const SPANISH_VOCAB = [
-  { spanish: 'Hola', english: 'Hello' },
-  { spanish: 'Gracias', english: 'Thank you' },
-  { spanish: 'Por favor', english: 'Please' },
-  { spanish: 'Buenos días', english: 'Good morning' },
-  { spanish: 'Buenas noches', english: 'Good night' },
-  { spanish: '¿Cómo estás?', english: 'How are you?' },
-  { spanish: 'Muy bien', english: 'Very well' },
-  { spanish: 'De nada', english: 'You\'re welcome' },
-];
-
 const Index = () => {
   const [greeting, setGreeting] = useState("");
   const [recipe, setRecipe] = useState<Recipe | null>(null);
@@ -91,7 +80,7 @@ const Index = () => {
         {/* Top Row - Launch Buttons and Vocabulary (Same Size) */}
         <div className="grid lg:grid-cols-2 gap-8 mb-8">
           <LaunchButtons />
-          <VocabBox vocabPairs={SPANISH_VOCAB} />
+          <VocabBox />
         </div>
 
         {/* Middle Row - Recipe and Facts */}
