@@ -5,19 +5,19 @@ import { Clock, Users, ChefHat } from "lucide-react";
 interface Recipe {
   id: number;
   title: string;
-  image: string;
+  slug: string;
+  image_url: string;
+  category: string;
   description: string;
-  prep_time: string;
-  cook_time: string;
-  servings: number;
-  ingredients: string[];
-  instructions: string[];
-  nutrition: {
-    calories: number;
-    protein: string;
-    carbs: string;
-    fat: string;
-  };
+  ingredients: string;
+  instructions: string;
+  prep_time_min?: number;
+  cook_time_min?: number;
+  calories: number;
+  protein_g: number;
+  carbs_g: number;
+  fat_g: number;
+  fiber_g: number;
 }
 
 interface RecipeCardProps {
@@ -25,11 +25,14 @@ interface RecipeCardProps {
 }
 
 export const RecipeCard = ({ recipe }: RecipeCardProps) => {
+  const ingredientsList = recipe.ingredients.split(';');
+  const totalTime = (recipe.prep_time_min || 0) + (recipe.cook_time_min || 0);
+  
   return (
     <Card className="shadow-soft hover:shadow-elevated transition-all duration-300 border-border/50">
       <div className="relative">
         <img 
-          src={recipe.image} 
+          src={recipe.image_url} 
           alt={recipe.title}
           className="w-full h-48 object-cover rounded-t-lg"
           onError={(e) => {
@@ -39,7 +42,7 @@ export const RecipeCard = ({ recipe }: RecipeCardProps) => {
         <div className="absolute top-4 right-4">
           <Badge className="bg-overproof-red text-white font-medium">
             <ChefHat size={14} className="mr-1" />
-            Healthy
+            {recipe.category}
           </Badge>
         </div>
       </div>
@@ -51,11 +54,11 @@ export const RecipeCard = ({ recipe }: RecipeCardProps) => {
         <div className="flex gap-4 text-sm text-muted-foreground">
           <div className="flex items-center gap-1">
             <Clock size={16} className="text-overproof-blue" />
-            <span>{recipe.prep_time}</span>
+            <span>{totalTime} min</span>
           </div>
           <div className="flex items-center gap-1">
             <Users size={16} className="text-overproof-blue" />
-            <span>{recipe.servings} servings</span>
+            <span>{recipe.calories} cal</span>
           </div>
         </div>
       </CardHeader>
@@ -64,15 +67,15 @@ export const RecipeCard = ({ recipe }: RecipeCardProps) => {
         <div>
           <h4 className="font-semibold text-card-foreground mb-2">Ingredients</h4>
           <ul className="text-sm text-muted-foreground space-y-1">
-            {recipe.ingredients.slice(0, 5).map((ingredient, index) => (
+            {ingredientsList.slice(0, 5).map((ingredient, index) => (
               <li key={index} className="flex items-start">
                 <span className="text-overproof-red mr-2">•</span>
-                {ingredient}
+                {ingredient.trim()}
               </li>
             ))}
-            {recipe.ingredients.length > 5 && (
+            {ingredientsList.length > 5 && (
               <li className="text-overproof-red font-medium">
-                +{recipe.ingredients.length - 5} more ingredients
+                +{ingredientsList.length - 5} more ingredients
               </li>
             )}
           </ul>
@@ -82,12 +85,12 @@ export const RecipeCard = ({ recipe }: RecipeCardProps) => {
           <h4 className="font-semibold text-card-foreground mb-2">Nutrition</h4>
           <div className="grid grid-cols-2 gap-2 text-sm">
             <div className="bg-muted p-2 rounded">
-              <span className="font-medium">{recipe.nutrition.calories}</span>
-              <span className="text-muted-foreground ml-1">cal</span>
+              <span className="font-medium">{recipe.protein_g}g</span>
+              <span className="text-muted-foreground ml-1">protein</span>
             </div>
             <div className="bg-muted p-2 rounded">
-              <span className="font-medium">{recipe.nutrition.protein}</span>
-              <span className="text-muted-foreground ml-1">protein</span>
+              <span className="font-medium">{recipe.fiber_g}g</span>
+              <span className="text-muted-foreground ml-1">fiber</span>
             </div>
           </div>
         </div>

@@ -4,134 +4,70 @@ export const mockRecipes = [
   {
     id: 1,
     title: "Mediterranean Quinoa Bowl",
-    image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop",
+    slug: "mediterranean-quinoa-bowl",
+    image_url: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop",
+    category: "Healthy Bowls",
     description: "A nutritious and colorful bowl packed with Mediterranean flavors",
-    prep_time: "15 min",
-    cook_time: "20 min",
-    servings: 4,
-    ingredients: [
-      "1 cup quinoa",
-      "2 cups vegetable broth",
-      "1 cucumber, diced",
-      "1 cup cherry tomatoes, halved",
-      "1/2 red onion, thinly sliced",
-      "1/2 cup kalamata olives",
-      "1/4 cup feta cheese, crumbled",
-      "2 tbsp olive oil",
-      "1 lemon, juiced",
-      "Fresh herbs (parsley, mint)"
-    ],
-    instructions: [
-      "Cook quinoa in vegetable broth until tender",
-      "Let quinoa cool completely",
-      "Combine vegetables and herbs",
-      "Whisk together olive oil and lemon juice",
-      "Toss everything together and serve"
-    ],
-    nutrition: {
-      calories: 320,
-      protein: "12g",
-      carbs: "45g",
-      fat: "11g"
-    }
+    ingredients: "1 cup quinoa;2 cups vegetable broth;1 cucumber, diced;1 cup cherry tomatoes, halved;1/2 red onion, thinly sliced;1/2 cup kalamata olives;1/4 cup feta cheese, crumbled;2 tbsp olive oil;1 lemon, juiced;Fresh herbs (parsley, mint)",
+    instructions: "Cook quinoa in vegetable broth until tender. Let quinoa cool completely. Combine vegetables and herbs. Whisk together olive oil and lemon juice. Toss everything together and serve.",
+    prep_time_min: 15,
+    cook_time_min: 20,
+    calories: 320,
+    protein_g: 12,
+    carbs_g: 45,
+    fat_g: 11,
+    fiber_g: 8
   },
   {
     id: 2,
     title: "Green Goddess Smoothie Bowl",
-    image: "https://images.unsplash.com/photo-1511690743698-d9d85f2fbf38?w=400&h=300&fit=crop",
+    slug: "green-goddess-smoothie-bowl",
+    image_url: "https://images.unsplash.com/photo-1511690743698-d9d85f2fbf38?w=400&h=300&fit=crop",
+    category: "Smoothie Bowls",
     description: "A vibrant, nutrient-dense smoothie bowl to start your day right",
-    prep_time: "10 min",
-    cook_time: "0 min",
-    servings: 2,
-    ingredients: [
-      "1 frozen banana",
-      "1 cup spinach",
-      "1/2 avocado",
-      "1 cup coconut milk",
-      "1 tbsp chia seeds",
-      "1 tsp honey",
-      "1/4 cup blueberries",
-      "2 tbsp granola",
-      "1 tbsp coconut flakes"
-    ],
-    instructions: [
-      "Blend banana, spinach, avocado, and coconut milk",
-      "Add chia seeds and honey",
-      "Pour into bowl",
-      "Top with blueberries, granola, and coconut"
-    ],
-    nutrition: {
-      calories: 285,
-      protein: "8g",
-      carbs: "32g",
-      fat: "15g"
-    }
+    ingredients: "1 frozen banana;1 cup spinach;1/2 avocado;1 cup coconut milk;1 tbsp chia seeds;1 tsp honey;1/4 cup blueberries;2 tbsp granola;1 tbsp coconut flakes",
+    instructions: "Blend banana, spinach, avocado, and coconut milk. Add chia seeds and honey. Pour into bowl. Top with blueberries, granola, and coconut.",
+    prep_time_min: 10,
+    cook_time_min: 0,
+    calories: 285,
+    protein_g: 8,
+    carbs_g: 32,
+    fat_g: 15,
+    fiber_g: 12
   },
   {
     id: 3,
     title: "Lemon Herb Grilled Salmon",
-    image: "https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=400&h=300&fit=crop",
+    slug: "lemon-herb-grilled-salmon",
+    image_url: "https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=400&h=300&fit=crop",
+    category: "Seafood",
     description: "Perfectly seasoned salmon with fresh herbs and bright lemon flavors",
-    prep_time: "10 min",
-    cook_time: "15 min",
-    servings: 4,
-    ingredients: [
-      "4 salmon fillets",
-      "2 lemons, sliced",
-      "3 tbsp olive oil",
-      "2 cloves garlic, minced",
-      "1 tbsp fresh dill",
-      "1 tbsp fresh parsley",
-      "Salt and pepper to taste",
-      "1 tsp paprika"
-    ],
-    instructions: [
-      "Preheat grill to medium-high heat",
-      "Mix olive oil, garlic, and herbs",
-      "Season salmon with spice mixture",
-      "Grill for 6-8 minutes per side",
-      "Serve with lemon slices"
-    ],
-    nutrition: {
-      calories: 310,
-      protein: "28g",
-      carbs: "2g",
-      fat: "20g"
-    }
+    ingredients: "4 salmon fillets;2 lemons, sliced;3 tbsp olive oil;2 cloves garlic, minced;1 tbsp fresh dill;1 tbsp fresh parsley;Salt and pepper to taste;1 tsp paprika",
+    instructions: "Preheat grill to medium-high heat. Mix olive oil, garlic, and herbs. Season salmon with spice mixture. Grill for 6-8 minutes per side. Serve with lemon slices.",
+    prep_time_min: 10,
+    cook_time_min: 15,
+    calories: 310,
+    protein_g: 28,
+    carbs_g: 2,
+    fat_g: 20,
+    fiber_g: 0
   },
   {
     id: 4,
     title: "Rainbow Buddha Bowl",
-    image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=300&fit=crop",
+    slug: "rainbow-buddha-bowl",
+    image_url: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=300&fit=crop",
+    category: "Buddha Bowls",
     description: "A colorful array of fresh vegetables, grains, and plant-based protein",
-    prep_time: "20 min",
-    cook_time: "25 min",
-    servings: 3,
-    ingredients: [
-      "1 cup brown rice",
-      "1 sweet potato, cubed",
-      "1 cup broccoli florets",
-      "1/2 cup edamame",
-      "1 carrot, julienned",
-      "1/4 red cabbage, shredded",
-      "2 tbsp tahini",
-      "1 tbsp soy sauce",
-      "1 tsp sesame oil",
-      "1 tbsp sesame seeds"
-    ],
-    instructions: [
-      "Cook brown rice according to package instructions",
-      "Roast sweet potato until tender",
-      "Steam broccoli and edamame",
-      "Prepare tahini dressing",
-      "Arrange all ingredients in bowl and drizzle with dressing"
-    ],
-    nutrition: {
-      calories: 340,
-      protein: "14g",
-      carbs: "48g",
-      fat: "12g"
-    }
+    ingredients: "1 cup brown rice;1 sweet potato, cubed;1 cup broccoli florets;1/2 cup edamame;1 carrot, julienned;1/4 red cabbage, shredded;2 tbsp tahini;1 tbsp soy sauce;1 tsp sesame oil;1 tbsp sesame seeds",
+    instructions: "Cook brown rice according to package instructions. Roast sweet potato until tender. Steam broccoli and edamame. Prepare tahini dressing. Arrange all ingredients in bowl and drizzle with dressing.",
+    prep_time_min: 20,
+    cook_time_min: 25,
+    calories: 340,
+    protein_g: 14,
+    carbs_g: 48,
+    fat_g: 12,
+    fiber_g: 10
   }
 ];
 
