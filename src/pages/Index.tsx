@@ -121,6 +121,17 @@ const Index = () => {
           </div>
         </div>
 
+        {/* BBC News Link */}
+        <div className="mb-8 text-center">
+          <a 
+            href="https://www.bbc.com/news" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-overproof-blue text-white rounded-lg hover:scale-105 transition-transform font-medium"
+          >
+            📰 BBC Headline News
+          </a>
+        </div>
       </div>
 
       {/* Footer */}
