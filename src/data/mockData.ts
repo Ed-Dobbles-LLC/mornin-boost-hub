@@ -110,21 +110,21 @@ export const mockRecipes = [
 ];
 
 export const mockVocabPairs = [
-  { spanish: "Buenos días", english: "Good morning", pronunciation: "BWAY-nohs DEE-ahs" },
-  { spanish: "Por favor", english: "Please", pronunciation: "por fah-VOR" },
-  { spanish: "Gracias", english: "Thank you", pronunciation: "GRAH-see-ahs" },
-  { spanish: "De nada", english: "You're welcome", pronunciation: "deh NAH-dah" },
-  { spanish: "¿Cómo estás?", english: "How are you?", pronunciation: "KOH-moh ehs-TAHS" },
-  { spanish: "Muy bien", english: "Very well", pronunciation: "moo-ee bee-EHN" },
-  { spanish: "¿Dónde está?", english: "Where is?", pronunciation: "DOHN-deh ehs-TAH" },
-  { spanish: "No entiendo", english: "I don't understand", pronunciation: "noh ehn-tee-EHN-doh" },
-  { spanish: "Habla más despacio", english: "Speak more slowly", pronunciation: "AH-blah mahs dehs-PAH-see-oh" },
-  { spanish: "¿Cuánto cuesta?", english: "How much does it cost?", pronunciation: "KWAN-toh KWES-tah" },
-  { spanish: "Me gusta", english: "I like it", pronunciation: "meh GOOS-tah" },
-  { spanish: "No me gusta", english: "I don't like it", pronunciation: "noh meh GOOS-tah" },
-  { spanish: "¿Qué hora es?", english: "What time is it?", pronunciation: "keh OH-rah ehs" },
-  { spanish: "Tengo hambre", english: "I'm hungry", pronunciation: "TEHN-goh AHM-breh" },
-  { spanish: "Tengo sed", english: "I'm thirsty", pronunciation: "TEHN-goh sehd" },
+  { spanish: "Buenos días", english: "Good morning" },
+  { spanish: "Por favor", english: "Please" },
+  { spanish: "Gracias", english: "Thank you" },
+  { spanish: "De nada", english: "You're welcome" },
+  { spanish: "¿Cómo estás?", english: "How are you?" },
+  { spanish: "Muy bien", english: "Very well" },
+  { spanish: "¿Dónde está?", english: "Where is?" },
+  { spanish: "No entiendo", english: "I don't understand" },
+  { spanish: "Habla más despacio", english: "Speak more slowly" },
+  { spanish: "¿Cuánto cuesta?", english: "How much does it cost?" },
+  { spanish: "Me gusta", english: "I like it" },
+  { spanish: "No me gusta", english: "I don't like it" },
+  { spanish: "¿Qué hora es?", english: "What time is it?" },
+  { spanish: "Tengo hambre", english: "I'm hungry" },
+  { spanish: "Tengo sed", english: "I'm thirsty" },
 ];
 
 export const mockFacts = [
