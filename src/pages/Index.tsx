@@ -1,10 +1,10 @@
 import { LaunchButtons } from "@/components/LaunchButtons";
 import { RecipeCard, Recipe } from "@/components/RecipeCard";
 import { VocabBox } from "@/components/VocabBox";
-import { FactBox } from "@/components/FactBox";
+import { FactBox, FactBoxRef } from "@/components/FactBox";
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/morning-hero.jpg";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 // pick from these healthy categories
 const CATEGORIES = ['Vegetarian', 'Vegan', 'Seafood'];
@@ -12,6 +12,7 @@ const CATEGORIES = ['Vegetarian', 'Vegan', 'Seafood'];
 const Index = () => {
   const [greeting, setGreeting] = useState("");
   const [recipe, setRecipe] = useState<Recipe | null>(null);
+  const factBoxRef = useRef<FactBoxRef>(null);
 
   useEffect(() => {
     const updateGreeting = () => {
@@ -104,10 +105,18 @@ const Index = () => {
           </div>
           
           <div>
-            <h2 className="text-xl font-semibold text-card-foreground mb-4">
-              Random Facts
-            </h2>
-            <FactBox />
+            <div className="flex justify-between items-center mb-4">
+              <h2 className="text-xl font-semibold text-card-foreground">
+                Random Facts
+              </h2>
+              <Button 
+                onClick={() => factBoxRef.current?.fetchFact()} 
+                className="bg-overproof-blue text-white hover:scale-105 transition-transform"
+              >
+                Next Fact
+              </Button>
+            </div>
+            <FactBox ref={factBoxRef} />
           </div>
         </div>
       </div>
