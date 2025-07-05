@@ -2,7 +2,7 @@ import { LaunchButtons } from "@/components/LaunchButtons";
 import { RecipeCard, Recipe } from "@/components/RecipeCard";
 import { VocabBox } from "@/components/VocabBox";
 import { FactBox, FactBoxRef } from "@/components/FactBox";
-import { CalendarBox } from "@/components/CalendarBox";
+
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/morning-hero.jpg";
 import { useState, useEffect, useRef } from "react";
@@ -121,10 +121,6 @@ const Index = () => {
           </div>
         </div>
 
-        {/* Calendar Section */}
-        <div className="mb-8">
-          <CalendarBox />
-        </div>
       </div>
 
       {/* Footer */}
