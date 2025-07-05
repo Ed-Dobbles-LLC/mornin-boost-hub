@@ -18,12 +18,12 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 213 84% 11%;
 
-    /* Overproof Primary Red - HEX #E06666 to HSL */
-    --primary: 0 69% 65%;
+    /* Overproof Primary Red - matching report design */
+    --primary: 0 65% 58%;
     --primary-foreground: 0 0% 100%;
 
-    /* Overproof Navy Blue - HEX #002447 to HSL */
-    --secondary: 213 100% 14%;
+    /* Overproof Navy Blue - deeper navy from report */
+    --secondary: 213 100% 12%;
     --secondary-foreground: 0 0% 100%;
 
     --muted: 210 40% 96%;
@@ -40,10 +40,10 @@ All colors MUST be HSL.
     --input: 213 20% 90%;
     --ring: 0 69% 65%;
 
-    /* Overproof Brand Colors */
-    --overproof-red: 0 69% 65%;
-    --overproof-navy: 213 100% 14%;
-    --overproof-blue: 213 43% 31%;
+    /* Overproof Brand Colors - matching report */
+    --overproof-red: 0 65% 58%;
+    --overproof-navy: 213 100% 12%;
+    --overproof-blue: 213 50% 28%;
     --eerie-black: 213 25% 15%;
     --ghost-white: 0 0% 98%;
     
