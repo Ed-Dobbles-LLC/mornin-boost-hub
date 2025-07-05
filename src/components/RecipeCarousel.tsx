@@ -31,15 +31,15 @@ export const RecipeCarousel = () => {
 
   return (
     <div className="space-y-4">
-      <Card className="p-4 shadow-soft">
+      <Card className="p-4 shadow-soft border-border/50">
         <CardHeader className="pb-2 px-0">
-          <CardTitle className="text-xl text-card-foreground flex items-center justify-between">
+          <CardTitle className="text-xl text-card-foreground font-semibold flex items-center justify-between">
             Healthy Recipe of the Moment
             <div className="flex gap-2">
-              <Button variant="outline" size="sm" onClick={togglePlayPause}>
+              <Button variant="outline" size="sm" onClick={togglePlayPause} className="hover:bg-overproof-red hover:text-white transition-colors">
                 {isPlaying ? <Pause size={16} /> : <Play size={16} />}
               </Button>
-              <Button variant="outline" size="sm" onClick={handleNext}>
+              <Button variant="outline" size="sm" onClick={handleNext} className="hover:bg-overproof-blue hover:text-white transition-colors">
                 <SkipForward size={16} />
               </Button>
             </div>

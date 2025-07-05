@@ -18,16 +18,16 @@ export const FactBox = ({ facts }: FactBoxProps) => {
   };
 
   return (
-    <Card className="shadow-soft">
+    <Card className="shadow-soft border-border/50">
       <CardHeader className="pb-4">
-        <CardTitle className="text-xl text-card-foreground flex items-center gap-2">
-          <Lightbulb className="text-primary" size={24} />
+        <CardTitle className="text-xl text-card-foreground font-semibold flex items-center gap-2">
+          <Lightbulb className="text-overproof-red" size={24} />
           Random Facts
         </CardTitle>
       </CardHeader>
       
       <CardContent className="space-y-4">
-        <div className="bg-gradient-subtle p-6 rounded-lg min-h-[120px] flex items-center">
+        <div className="bg-gradient-subtle p-6 rounded-lg min-h-[120px] flex items-center border border-border/30">
           <p className="text-card-foreground leading-relaxed">
             {facts[currentFactIndex]}
           </p>
@@ -35,7 +35,7 @@ export const FactBox = ({ facts }: FactBoxProps) => {
         
         <Button 
           onClick={handleNextFact}
-          className="w-full bg-gradient-fresh text-white hover:scale-105 transition-transform"
+          className="w-full bg-overproof-blue text-white hover:scale-105 transition-transform font-medium"
         >
           <RefreshCw size={16} className="mr-2" />
           Next Fact

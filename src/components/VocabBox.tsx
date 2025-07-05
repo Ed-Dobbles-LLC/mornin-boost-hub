@@ -43,11 +43,11 @@ export const VocabBox = ({ vocabPairs }: VocabBoxProps) => {
   };
 
   return (
-    <Card className="shadow-soft">
+    <Card className="shadow-soft border-border/50">
       <CardHeader className="pb-4">
-        <CardTitle className="text-xl text-card-foreground flex items-center justify-between">
+        <CardTitle className="text-xl text-card-foreground font-semibold flex items-center justify-between">
           Spanish Vocabulary
-          <Button variant="outline" size="sm" onClick={handleShuffle}>
+          <Button variant="outline" size="sm" onClick={handleShuffle} className="hover:bg-overproof-red hover:text-white transition-colors">
             <Shuffle size={16} />
           </Button>
         </CardTitle>
@@ -55,10 +55,10 @@ export const VocabBox = ({ vocabPairs }: VocabBoxProps) => {
       
       <CardContent className="space-y-6">
         <div className="text-center space-y-4">
-          <div className="bg-gradient-subtle p-6 rounded-lg">
+          <div className="bg-gradient-subtle p-6 rounded-lg border border-border/30">
             <div className="flex items-center justify-center gap-2 mb-2">
-              <h3 className="text-2xl font-bold text-primary">{currentPair.spanish}</h3>
-              <Button variant="ghost" size="sm" onClick={speakSpanish}>
+              <h3 className="text-2xl font-semibold text-overproof-navy">{currentPair.spanish}</h3>
+              <Button variant="ghost" size="sm" onClick={speakSpanish} className="hover:bg-overproof-red hover:text-white">
                 <Volume2 size={16} />
               </Button>
             </div>
@@ -71,13 +71,13 @@ export const VocabBox = ({ vocabPairs }: VocabBoxProps) => {
           
           <div className="min-h-[60px] flex items-center justify-center">
             {showEnglish ? (
-              <div className="bg-gradient-fresh p-4 rounded-lg text-white">
+              <div className="bg-overproof-blue p-4 rounded-lg text-white">
                 <p className="text-lg font-semibold">{currentPair.english}</p>
               </div>
             ) : (
               <Button 
                 onClick={handleReveal}
-                className="bg-gradient-ocean text-white hover:scale-105 transition-transform"
+                className="bg-gradient-brand text-white hover:scale-105 transition-transform font-medium"
               >
                 Reveal Translation
               </Button>
@@ -88,7 +88,7 @@ export const VocabBox = ({ vocabPairs }: VocabBoxProps) => {
         <div className="flex gap-2">
           <Button 
             onClick={handleNext} 
-            className="flex-1 bg-gradient-sunrise text-white hover:scale-105 transition-transform"
+            className="flex-1 bg-overproof-red text-white hover:scale-105 transition-transform font-medium"
           >
             Next Word
           </Button>

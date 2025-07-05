@@ -26,7 +26,7 @@ interface RecipeCardProps {
 
 export const RecipeCard = ({ recipe }: RecipeCardProps) => {
   return (
-    <Card className="shadow-soft hover:shadow-medium transition-all duration-300">
+    <Card className="shadow-soft hover:shadow-elevated transition-all duration-300 border-border/50">
       <div className="relative">
         <img 
           src={recipe.image} 
@@ -37,7 +37,7 @@ export const RecipeCard = ({ recipe }: RecipeCardProps) => {
           }}
         />
         <div className="absolute top-4 right-4">
-          <Badge className="bg-gradient-sunrise text-white">
+          <Badge className="bg-overproof-red text-white font-medium">
             <ChefHat size={14} className="mr-1" />
             Healthy
           </Badge>
@@ -45,16 +45,16 @@ export const RecipeCard = ({ recipe }: RecipeCardProps) => {
       </div>
       
       <CardHeader>
-        <CardTitle className="text-xl text-card-foreground">{recipe.title}</CardTitle>
-        <p className="text-muted-foreground text-sm">{recipe.description}</p>
+        <CardTitle className="text-xl text-card-foreground font-semibold">{recipe.title}</CardTitle>
+        <p className="text-muted-foreground text-sm leading-relaxed">{recipe.description}</p>
         
         <div className="flex gap-4 text-sm text-muted-foreground">
           <div className="flex items-center gap-1">
-            <Clock size={16} />
+            <Clock size={16} className="text-overproof-blue" />
             <span>{recipe.prep_time}</span>
           </div>
           <div className="flex items-center gap-1">
-            <Users size={16} />
+            <Users size={16} className="text-overproof-blue" />
             <span>{recipe.servings} servings</span>
           </div>
         </div>
@@ -66,12 +66,12 @@ export const RecipeCard = ({ recipe }: RecipeCardProps) => {
           <ul className="text-sm text-muted-foreground space-y-1">
             {recipe.ingredients.slice(0, 5).map((ingredient, index) => (
               <li key={index} className="flex items-start">
-                <span className="text-primary mr-2">•</span>
+                <span className="text-overproof-red mr-2">•</span>
                 {ingredient}
               </li>
             ))}
             {recipe.ingredients.length > 5 && (
-              <li className="text-primary font-medium">
+              <li className="text-overproof-red font-medium">
                 +{recipe.ingredients.length - 5} more ingredients
               </li>
             )}
