@@ -110,8 +110,8 @@ const Index = () => {
             </div>
           </div>
           
-          <div className="space-y-6">
-            <div>
+          <div className="space-y-6 h-full flex flex-col">
+            <div className="flex-shrink-0">
               <div className="flex justify-between items-center mb-4">
                 <h2 className="text-xl font-semibold text-card-foreground">
                   Random Facts
@@ -126,7 +126,7 @@ const Index = () => {
               <FactBox ref={factBoxRef} />
             </div>
             
-            <div>
+            <div className="flex-1">
               <HeadlinesBox />
             </div>
           </div>
