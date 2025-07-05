@@ -32,6 +32,7 @@ export const CalendarBox = () => {
   const fetchCalendarEvents = async () => {
     try {
       setLoading(true);
+      console.log('Fetching calendar events...');
       
       const { data, error } = await supabase.functions.invoke('google-calendar');
       
@@ -40,18 +41,19 @@ export const CalendarBox = () => {
         setCalendarData({ 
           events: [], 
           date: new Date().toISOString().split('T')[0], 
-          error: 'Failed to load calendar events' 
+          error: `Function error: ${error.message || 'Unknown error'}` 
         });
         return;
       }
 
+      console.log('Calendar data received:', data);
       setCalendarData(data);
     } catch (error) {
       console.error('Error fetching calendar:', error);
       setCalendarData({ 
         events: [], 
         date: new Date().toISOString().split('T')[0], 
-        error: 'Failed to connect to calendar' 
+        error: `Connection error: ${error instanceof Error ? error.message : 'Unknown error'}` 
       });
     } finally {
       setLoading(false);
