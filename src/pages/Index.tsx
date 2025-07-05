@@ -2,6 +2,7 @@ import { LaunchButtons } from "@/components/LaunchButtons";
 import { RecipeCard, Recipe } from "@/components/RecipeCard";
 import { VocabBox } from "@/components/VocabBox";
 import { FactBox, FactBoxRef } from "@/components/FactBox";
+import { HeadlinesBox } from "@/components/HeadlinesBox";
 
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/morning-hero.jpg";
@@ -105,32 +106,26 @@ const Index = () => {
             )}
           </div>
           
-          <div>
-            <div className="flex justify-between items-center mb-4">
-              <h2 className="text-xl font-semibold text-card-foreground">
-                Random Facts
-              </h2>
-              <Button 
-                onClick={() => factBoxRef.current?.fetchFact()} 
-                className="bg-overproof-blue text-white hover:scale-105 transition-transform"
-              >
-                Next Fact
-              </Button>
+          <div className="space-y-6">
+            <div>
+              <div className="flex justify-between items-center mb-4">
+                <h2 className="text-xl font-semibold text-card-foreground">
+                  Random Facts
+                </h2>
+                <Button 
+                  onClick={() => factBoxRef.current?.fetchFact()} 
+                  className="bg-overproof-blue text-white hover:scale-105 transition-transform"
+                >
+                  Next Fact
+                </Button>
+              </div>
+              <FactBox ref={factBoxRef} />
             </div>
-            <FactBox ref={factBoxRef} />
+            
+            <div>
+              <HeadlinesBox />
+            </div>
           </div>
-        </div>
-
-        {/* BBC News Link */}
-        <div className="mb-8 text-center">
-          <a 
-            href="https://www.bbc.com/news" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-overproof-blue text-white rounded-lg hover:scale-105 transition-transform font-medium"
-          >
-            📰 BBC Headline News
-          </a>
         </div>
       </div>
 
