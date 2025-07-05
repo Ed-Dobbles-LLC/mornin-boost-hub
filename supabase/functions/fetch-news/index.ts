@@ -22,49 +22,66 @@ serve(async (req) => {
   }
 
   try {
-    console.log('Fetching BBC News RSS feed...');
+    console.log('Fetching news from The Guardian API...');
     
-    // Fetch BBC News RSS feed
-    const response = await fetch('https://feeds.bbci.co.uk/news/rss.xml');
+    // Use The Guardian's free API (no key required for basic access)
+    const response = await fetch('https://content.guardianapis.com/search?order-by=newest&show-fields=headline,trailText,webUrl&page-size=6&api-key=test');
     
     if (!response.ok) {
-      throw new Error(`Failed to fetch RSS feed: ${response.status}`);
+      console.log('Guardian API failed, trying alternative source...');
+      // Try alternative RSS feed
+      const rssResponse = await fetch('https://rss.cnn.com/rss/edition.rss');
+      if (!rssResponse.ok) {
+        throw new Error(`Failed to fetch news: ${response.status}`);
+      }
+      
+      const xmlText = await rssResponse.text();
+      const parser = new DOMParser();
+      const xmlDoc = parser.parseFromString(xmlText, 'text/xml');
+      const items = xmlDoc.querySelectorAll('item');
+      
+      const articles: Article[] = Array.from(items).slice(0, 6).map(item => {
+        const title = item.querySelector('title')?.textContent || 'No title';
+        const description = item.querySelector('description')?.textContent || 'No description';
+        const link = item.querySelector('link')?.textContent || '#';
+        const pubDate = item.querySelector('pubDate')?.textContent || new Date().toISOString();
+        
+        return {
+          title: title.trim(),
+          description: description.replace(/<[^>]*>/g, '').trim().substring(0, 200),
+          url: link,
+          publishedAt: pubDate,
+          source: { name: 'CNN' }
+        };
+      });
+      
+      console.log(`Returning ${articles.length} articles from CNN RSS`);
+      return new Response(
+        JSON.stringify({
+          articles,
+          success: true,
+          timestamp: new Date().toISOString()
+        }),
+        {
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+        }
+      );
     }
     
-    const xmlText = await response.text();
-    console.log('RSS feed fetched successfully');
+    const data = await response.json();
+    console.log('Guardian API response received');
     
-    // Parse XML using DOMParser
-    const parser = new DOMParser();
-    const xmlDoc = parser.parseFromString(xmlText, 'text/xml');
-    
-    // Check for parsing errors
-    const parserError = xmlDoc.querySelector('parsererror');
-    if (parserError) {
-      throw new Error('Failed to parse RSS XML');
+    if (!data.response || !data.response.results) {
+      throw new Error('Invalid response format from Guardian API');
     }
     
-    // Extract items from RSS
-    const items = xmlDoc.querySelectorAll('item');
-    console.log(`Found ${items.length} news items`);
-    
-    const articles: Article[] = Array.from(items).slice(0, 6).map(item => {
-      const title = item.querySelector('title')?.textContent || 'No title';
-      const description = item.querySelector('description')?.textContent || 'No description';
-      const link = item.querySelector('link')?.textContent || '#';
-      const pubDate = item.querySelector('pubDate')?.textContent || new Date().toISOString();
-      
-      // Clean up description (remove HTML tags if any)
-      const cleanDescription = description.replace(/<[^>]*>/g, '').trim();
-      
-      return {
-        title: title.trim(),
-        description: cleanDescription.substring(0, 200) + (cleanDescription.length > 200 ? '...' : ''),
-        url: link,
-        publishedAt: pubDate,
-        source: { name: 'BBC News' }
-      };
-    });
+    const articles: Article[] = data.response.results.map((item: any) => ({
+      title: item.webTitle || 'No title',
+      description: item.fields?.trailText || item.webTitle || 'No description available',
+      url: item.webUrl || '#',
+      publishedAt: item.webPublicationDate || new Date().toISOString(),
+      source: { name: 'The Guardian' }
+    }));
 
     console.log(`Returning ${articles.length} articles`);
 
