@@ -1,0 +1,172 @@
+// Mock data for recipes, vocabulary, and facts
+
+export const mockRecipes = [
+  {
+    id: 1,
+    title: "Mediterranean Quinoa Bowl",
+    image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop",
+    description: "A nutritious and colorful bowl packed with Mediterranean flavors",
+    prep_time: "15 min",
+    cook_time: "20 min",
+    servings: 4,
+    ingredients: [
+      "1 cup quinoa",
+      "2 cups vegetable broth",
+      "1 cucumber, diced",
+      "1 cup cherry tomatoes, halved",
+      "1/2 red onion, thinly sliced",
+      "1/2 cup kalamata olives",
+      "1/4 cup feta cheese, crumbled",
+      "2 tbsp olive oil",
+      "1 lemon, juiced",
+      "Fresh herbs (parsley, mint)"
+    ],
+    instructions: [
+      "Cook quinoa in vegetable broth until tender",
+      "Let quinoa cool completely",
+      "Combine vegetables and herbs",
+      "Whisk together olive oil and lemon juice",
+      "Toss everything together and serve"
+    ],
+    nutrition: {
+      calories: 320,
+      protein: "12g",
+      carbs: "45g",
+      fat: "11g"
+    }
+  },
+  {
+    id: 2,
+    title: "Green Goddess Smoothie Bowl",
+    image: "https://images.unsplash.com/photo-1511690743698-d9d85f2fbf38?w=400&h=300&fit=crop",
+    description: "A vibrant, nutrient-dense smoothie bowl to start your day right",
+    prep_time: "10 min",
+    cook_time: "0 min",
+    servings: 2,
+    ingredients: [
+      "1 frozen banana",
+      "1 cup spinach",
+      "1/2 avocado",
+      "1 cup coconut milk",
+      "1 tbsp chia seeds",
+      "1 tsp honey",
+      "1/4 cup blueberries",
+      "2 tbsp granola",
+      "1 tbsp coconut flakes"
+    ],
+    instructions: [
+      "Blend banana, spinach, avocado, and coconut milk",
+      "Add chia seeds and honey",
+      "Pour into bowl",
+      "Top with blueberries, granola, and coconut"
+    ],
+    nutrition: {
+      calories: 285,
+      protein: "8g",
+      carbs: "32g",
+      fat: "15g"
+    }
+  },
+  {
+    id: 3,
+    title: "Lemon Herb Grilled Salmon",
+    image: "https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=400&h=300&fit=crop",
+    description: "Perfectly seasoned salmon with fresh herbs and bright lemon flavors",
+    prep_time: "10 min",
+    cook_time: "15 min",
+    servings: 4,
+    ingredients: [
+      "4 salmon fillets",
+      "2 lemons, sliced",
+      "3 tbsp olive oil",
+      "2 cloves garlic, minced",
+      "1 tbsp fresh dill",
+      "1 tbsp fresh parsley",
+      "Salt and pepper to taste",
+      "1 tsp paprika"
+    ],
+    instructions: [
+      "Preheat grill to medium-high heat",
+      "Mix olive oil, garlic, and herbs",
+      "Season salmon with spice mixture",
+      "Grill for 6-8 minutes per side",
+      "Serve with lemon slices"
+    ],
+    nutrition: {
+      calories: 310,
+      protein: "28g",
+      carbs: "2g",
+      fat: "20g"
+    }
+  },
+  {
+    id: 4,
+    title: "Rainbow Buddha Bowl",
+    image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=300&fit=crop",
+    description: "A colorful array of fresh vegetables, grains, and plant-based protein",
+    prep_time: "20 min",
+    cook_time: "25 min",
+    servings: 3,
+    ingredients: [
+      "1 cup brown rice",
+      "1 sweet potato, cubed",
+      "1 cup broccoli florets",
+      "1/2 cup edamame",
+      "1 carrot, julienned",
+      "1/4 red cabbage, shredded",
+      "2 tbsp tahini",
+      "1 tbsp soy sauce",
+      "1 tsp sesame oil",
+      "1 tbsp sesame seeds"
+    ],
+    instructions: [
+      "Cook brown rice according to package instructions",
+      "Roast sweet potato until tender",
+      "Steam broccoli and edamame",
+      "Prepare tahini dressing",
+      "Arrange all ingredients in bowl and drizzle with dressing"
+    ],
+    nutrition: {
+      calories: 340,
+      protein: "14g",
+      carbs: "48g",
+      fat: "12g"
+    }
+  }
+];
+
+export const mockVocabPairs = [
+  { spanish: "Buenos días", english: "Good morning", pronunciation: "BWAY-nohs DEE-ahs" },
+  { spanish: "Por favor", english: "Please", pronunciation: "por fah-VOR" },
+  { spanish: "Gracias", english: "Thank you", pronunciation: "GRAH-see-ahs" },
+  { spanish: "De nada", english: "You're welcome", pronunciation: "deh NAH-dah" },
+  { spanish: "¿Cómo estás?", english: "How are you?", pronunciation: "KOH-moh ehs-TAHS" },
+  { spanish: "Muy bien", english: "Very well", pronunciation: "moo-ee bee-EHN" },
+  { spanish: "¿Dónde está?", english: "Where is?", pronunciation: "DOHN-deh ehs-TAH" },
+  { spanish: "No entiendo", english: "I don't understand", pronunciation: "noh ehn-tee-EHN-doh" },
+  { spanish: "Habla más despacio", english: "Speak more slowly", pronunciation: "AH-blah mahs dehs-PAH-see-oh" },
+  { spanish: "¿Cuánto cuesta?", english: "How much does it cost?", pronunciation: "KWAN-toh KWES-tah" },
+  { spanish: "Me gusta", english: "I like it", pronunciation: "meh GOOS-tah" },
+  { spanish: "No me gusta", english: "I don't like it", pronunciation: "noh meh GOOS-tah" },
+  { spanish: "¿Qué hora es?", english: "What time is it?", pronunciation: "keh OH-rah ehs" },
+  { spanish: "Tengo hambre", english: "I'm hungry", pronunciation: "TEHN-goh AHM-breh" },
+  { spanish: "Tengo sed", english: "I'm thirsty", pronunciation: "TEHN-goh sehd" },
+];
+
+export const mockFacts = [
+  "Honey never spoils. Archaeologists have found pots of honey in ancient Egyptian tombs that are over 3,000 years old and still perfectly edible.",
+  "Octopuses have three hearts and blue blood. Two hearts pump blood to the gills, while the third pumps blood to the rest of the body.",
+  "A group of flamingos is called a 'flamboyance'. They get their pink color from eating shrimp and algae.",
+  "The human brain uses about 20% of the body's total energy, despite only weighing about 2% of body weight.",
+  "Bananas are berries, but strawberries aren't. Botanically speaking, berries must have seeds inside their flesh.",
+  "A single cloud can weigh more than a million pounds, yet it floats in the sky due to warm air currents.",
+  "The Great Wall of China isn't visible from space with the naked eye, contrary to popular belief.",
+  "Dolphins have names for each other. They develop unique whistle signatures that other dolphins use to call them.",
+  "There are more possible games of chess than there are atoms in the observable universe.",
+  "A day on Venus is longer than its year. Venus rotates so slowly that it takes 243 Earth days to complete one rotation.",
+  "The shortest war in history lasted only 38-45 minutes. It was between Britain and Zanzibar in 1896.",
+  "Wombat poop is cube-shaped. They're the only animal known to produce square feces.",
+  "Your stomach gets an entirely new lining every 3-5 days because stomach acid would otherwise digest it.",
+  "A shrimp's heart is in its head, and it has blue blood due to a copper-based protein called hemocyanin.",
+  "The word 'set' has the most different meanings in the English language, with over 430 distinct definitions."
+];
