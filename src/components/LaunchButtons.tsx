@@ -47,6 +47,7 @@ const launchButtons: LaunchButton[] = [
   { name: "Motion", url: "https://app.usemotion.com", icon: <Clock size={24} />, color: "bg-overproof-red" },
   { name: "Manus", url: "https://manus.im/app", icon: <Hand size={24} />, color: "bg-overproof-navy" },
   { name: "HeyGen", url: "https://app.heygen.com/home", icon: <Play size={24} />, color: "bg-gradient-brand" },
+  { name: "EOS One", url: "https://app.eosone.com/", icon: <Globe size={24} />, color: "bg-overproof-red" },
 ];
 
 export const LaunchButtons = () => {
