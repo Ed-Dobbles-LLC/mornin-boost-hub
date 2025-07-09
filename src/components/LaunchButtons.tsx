@@ -12,7 +12,12 @@ import {
   Workflow, 
   Bot, 
   MessageSquare, 
-  Briefcase 
+  Briefcase,
+  Calendar,
+  Brain,
+  Globe,
+  Clock,
+  Hand
 } from "lucide-react";
 
 interface LaunchButton {
@@ -26,6 +31,7 @@ const launchButtons: LaunchButton[] = [
   { name: "Gmail", url: "https://mail.google.com", icon: <Mail size={24} />, color: "bg-overproof-red" },
   { name: "Google Chat", url: "https://chat.google.com", icon: <MessageCircle size={24} />, color: "bg-overproof-blue" },
   { name: "Google Meet", url: "https://meet.google.com", icon: <Video size={24} />, color: "bg-gradient-brand" },
+  { name: "Google Calendar", url: "https://calendar.google.com", icon: <Calendar size={24} />, color: "bg-overproof-navy" },
   { name: "Sheets", url: "https://sheets.google.com", icon: <FileSpreadsheet size={24} />, color: "bg-overproof-navy" },
   { name: "Drive", url: "https://drive.google.com", icon: <HardDrive size={24} />, color: "bg-overproof-blue" },
   { name: "Docs", url: "https://docs.google.com", icon: <FileText size={24} />, color: "bg-overproof-red" },
@@ -35,6 +41,10 @@ const launchButtons: LaunchButton[] = [
   { name: "Claude", url: "https://claude.ai", icon: <Bot size={24} />, color: "bg-overproof-navy" },
   { name: "ChatGPT", url: "https://chat.openai.com", icon: <MessageSquare size={24} />, color: "bg-overproof-red" },
   { name: "Upwork", url: "https://upwork.com", icon: <Briefcase size={24} />, color: "bg-gradient-brand" },
+  { name: "Athena-Agent", url: "https://athena-agent.ai", icon: <Brain size={24} />, color: "bg-gradient-brand" },
+  { name: "Smythos", url: "https://app.smythos.com", icon: <Globe size={24} />, color: "bg-overproof-blue" },
+  { name: "Motion", url: "https://app.usemotion.com", icon: <Clock size={24} />, color: "bg-overproof-red" },
+  { name: "Manus", url: "https://manus.im/app", icon: <Hand size={24} />, color: "bg-overproof-navy" },
 ];
 
 export const LaunchButtons = () => {
