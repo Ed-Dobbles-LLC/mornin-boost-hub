@@ -29,13 +29,13 @@ interface LaunchButton {
 }
 
 const launchButtons: LaunchButton[] = [
-  { name: "Gmail", url: "https://mail.google.com/a/dobbles.ai", icon: <Mail size={24} />, color: "bg-dobbles-red" },
-  { name: "Google Chat", url: "https://chat.google.com/u/?authuser=ed@dobbles.ai", icon: <MessageCircle size={24} />, color: "bg-dobbles-blue" },
+  { name: "Gmail", url: "https://mail.google.com/a/dobbles.ai", icon: <Mail size={24} />, color: "bg-overproof-red" },
+  { name: "Google Chat", url: "https://chat.google.com/u/?authuser=ed@dobbles.ai", icon: <MessageCircle size={24} />, color: "bg-overproof-blue" },
   { name: "Google Meet", url: "https://meet.google.com/u/?authuser=ed@dobbles.ai", icon: <Video size={24} />, color: "bg-gradient-brand" },
-  { name: "Google Calendar", url: "https://calendar.google.com/a/dobbles.ai", icon: <Calendar size={24} />, color: "bg-dobbles-navy" },
-  { name: "Sheets", url: "https://docs.google.com/spreadsheets/u/?authuser=ed@dobbles.ai", icon: <FileSpreadsheet size={24} />, color: "bg-dobbles-navy" },
-  { name: "Drive", url: "https://drive.google.com/a/dobbles.ai", icon: <HardDrive size={24} />, color: "bg-dobbles-blue" },
-  { name: "Docs", url: "https://docs.google.com/document/u/?authuser=ed@dobbles.ai", icon: <FileText size={24} />, color: "bg-dobbles-red" },
+  { name: "Google Calendar", url: "https://calendar.google.com/a/dobbles.ai", icon: <Calendar size={24} />, color: "bg-overproof-navy" },
+  { name: "Sheets", url: "https://docs.google.com/spreadsheets/u/?authuser=ed@dobbles.ai", icon: <FileSpreadsheet size={24} />, color: "bg-overproof-navy" },
+  { name: "Drive", url: "https://drive.google.com/a/dobbles.ai", icon: <HardDrive size={24} />, color: "bg-overproof-blue" },
+  { name: "Docs", url: "https://docs.google.com/document/u/?authuser=ed@dobbles.ai", icon: <FileText size={24} />, color: "bg-overproof-red" },
   { name: "Slides", url: "https://docs.google.com/presentation/u/?authuser=ed@dobbles.ai", icon: <Presentation size={24} />, color: "bg-gradient-navy" },
   { name: "Lovable", url: "https://lovable.dev", icon: <Code2 size={24} />, color: "bg-gradient-brand" },
   { name: "n8n", url: "https://n8n.io", icon: <Workflow size={24} />, color: "bg-overproof-blue" },
