@@ -44,11 +44,8 @@ const launchButtons: LaunchButton[] = [
   { name: "ChatGPT", url: "https://chat.openai.com", icon: <MessageSquare size={24} />, color: "bg-overproof-red" },
   { name: "Upwork", url: "https://upwork.com", icon: <Briefcase size={24} />, color: "bg-gradient-brand" },
   { name: "Gemini", url: "https://gemini.google.com", icon: <Sparkles size={24} />, color: "bg-gradient-brand" },
-  { name: "Smythos", url: "https://app.smythos.com", icon: <Globe size={24} />, color: "bg-overproof-blue" },
-  { name: "Motion", url: "https://app.usemotion.com", icon: <Clock size={24} />, color: "bg-overproof-red" },
   { name: "Overproof Agent", url: "https://overproof-agent.ai", icon: <Hand size={24} />, color: "bg-overproof-navy" },
   { name: "HeyGen", url: "https://app.heygen.com/home", icon: <Play size={24} />, color: "bg-gradient-brand" },
-  { name: "EOS One", url: "https://app.eosone.com/", icon: <Globe size={24} />, color: "bg-overproof-red" },
   { name: "AnswerRocket", url: "https://overproof.prod.answerrocket.com", icon: <Brain size={24} />, color: "bg-gradient-navy" },
 ];
 
