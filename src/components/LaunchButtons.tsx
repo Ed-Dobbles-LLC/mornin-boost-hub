@@ -18,7 +18,8 @@ import {
   Sparkles,
   Hand,
   Play,
-  Cloud
+  Cloud,
+  Layers
 } from "lucide-react";
 
 interface LaunchButton {
@@ -49,6 +50,7 @@ const launchButtons: LaunchButton[] = [
   { name: "Upwork", url: "https://upwork.com", icon: <Briefcase size={24} />, color: "bg-gradient-brand" },
   { name: "Overproof Agent", url: "https://overproof-agent.ai", icon: <Hand size={24} />, color: "bg-overproof-navy" },
   { name: "HeyGen", url: "https://app.heygen.com/home", icon: <Play size={24} />, color: "bg-gradient-brand" },
+  { name: "Gamma", url: "https://gamma.app/create", icon: <Layers size={24} />, color: "bg-overproof-red" },
   { name: "AnswerRocket", url: "https://overproof.prod.answerrocket.com", icon: <Brain size={24} />, color: "bg-gradient-navy" },
 ];
 
