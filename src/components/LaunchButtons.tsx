@@ -20,7 +20,8 @@ import {
   Play,
   Cloud,
   Layers,
-  Factory
+  Factory,
+  Linkedin
 } from "lucide-react";
 
 interface LaunchButton {
@@ -53,6 +54,7 @@ const launchButtons: LaunchButton[] = [
   { name: "HeyGen", url: "https://app.heygen.com/home", icon: <Play size={24} />, color: "bg-gradient-brand" },
   { name: "Gamma", url: "https://gamma.app/create", icon: <Layers size={24} />, color: "bg-overproof-red" },
   { name: "Factory", url: "https://app.factory.ai/sessions", icon: <Factory size={24} />, color: "bg-overproof-navy" },
+  { name: "LinkedIn", url: "https://www.linkedin.com/in/ed-dobbles/", icon: <Linkedin size={24} />, color: "bg-overproof-blue" },
   { name: "AnswerRocket", url: "https://overproof.prod.answerrocket.com", icon: <Brain size={24} />, color: "bg-gradient-navy" },
 ];
 
