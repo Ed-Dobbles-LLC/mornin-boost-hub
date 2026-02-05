@@ -16,10 +16,9 @@ import {
   Calendar,
   Brain,
   Sparkles,
-  Globe,
-  Clock,
   Hand,
-  Play
+  Play,
+  Cloud
 } from "lucide-react";
 
 interface LaunchButton {
@@ -39,10 +38,11 @@ const launchButtons: LaunchButton[] = [
   { name: "Google Docs", url: "https://docs.google.com/document/u/?authuser=ed@dobbles.ai", icon: <FileText size={24} />, color: "bg-overproof-red" },
   { name: "Google Sheets", url: "https://docs.google.com/spreadsheets/u/?authuser=ed@dobbles.ai", icon: <FileSpreadsheet size={24} />, color: "bg-overproof-navy" },
   { name: "Google Slides", url: "https://docs.google.com/presentation/u/?authuser=ed@dobbles.ai", icon: <Presentation size={24} />, color: "bg-gradient-navy" },
-  { name: "Google Gemini", url: "https://gemini.google.com", icon: <Sparkles size={24} />, color: "bg-gradient-brand" },
+  { name: "Google Cloud Console", url: "https://console.cloud.google.com/welcome/new?_gl=1*1qa0vav*_up*MQ..&gclid=Cj0KCQiAnJHMBhDAARIsABr7b86Kz6LeS_urkTlGDxsY1xenpLJgdgWf9NIK4hy7Em9vQ1RBeWTgh9gaAoq0EALw_wcB&gclsrc=aw.ds&rapt=AEjHL4OqASXmfrkx42UUzxcFTeoSEbXL9CMHTM2gEU9gkb8bPBGqA44Xr5iAufHHcBeWYu9uO5qAQY4cJt4mdVgqaLerrSuKST1PchOUR31CgeV8tvRH_Ww&project=gen-lang-client-0993049784", icon: <Cloud size={24} />, color: "bg-overproof-blue" },
   // AI Tools
   { name: "ChatGPT", url: "https://chat.openai.com", icon: <MessageSquare size={24} />, color: "bg-overproof-red" },
   { name: "Claude", url: "https://claude.ai", icon: <Bot size={24} />, color: "bg-overproof-navy" },
+  { name: "Google Gemini", url: "https://gemini.google.com", icon: <Sparkles size={24} />, color: "bg-gradient-brand" },
   { name: "Lovable", url: "https://lovable.dev", icon: <Code2 size={24} />, color: "bg-gradient-brand" },
   // Productivity Apps
   { name: "n8n", url: "https://n8n.io", icon: <Workflow size={24} />, color: "bg-overproof-blue" },
