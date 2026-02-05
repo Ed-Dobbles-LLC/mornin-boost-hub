@@ -30,20 +30,23 @@ interface LaunchButton {
 }
 
 const launchButtons: LaunchButton[] = [
+  // Google Apps
   { name: "Gmail", url: "https://mail.google.com/a/dobbles.ai", icon: <Mail size={24} />, color: "bg-overproof-red" },
   { name: "Google Chat", url: "https://chat.google.com/u/?authuser=ed@dobbles.ai", icon: <MessageCircle size={24} />, color: "bg-overproof-blue" },
   { name: "Google Meet", url: "https://meet.google.com/u/?authuser=ed@dobbles.ai", icon: <Video size={24} />, color: "bg-gradient-brand" },
   { name: "Google Calendar", url: "https://calendar.google.com/a/dobbles.ai", icon: <Calendar size={24} />, color: "bg-overproof-navy" },
-  { name: "Google Sheets", url: "https://docs.google.com/spreadsheets/u/?authuser=ed@dobbles.ai", icon: <FileSpreadsheet size={24} />, color: "bg-overproof-navy" },
   { name: "Google Drive", url: "https://drive.google.com/a/dobbles.ai", icon: <HardDrive size={24} />, color: "bg-overproof-blue" },
   { name: "Google Docs", url: "https://docs.google.com/document/u/?authuser=ed@dobbles.ai", icon: <FileText size={24} />, color: "bg-overproof-red" },
+  { name: "Google Sheets", url: "https://docs.google.com/spreadsheets/u/?authuser=ed@dobbles.ai", icon: <FileSpreadsheet size={24} />, color: "bg-overproof-navy" },
   { name: "Google Slides", url: "https://docs.google.com/presentation/u/?authuser=ed@dobbles.ai", icon: <Presentation size={24} />, color: "bg-gradient-navy" },
-  { name: "Lovable", url: "https://lovable.dev", icon: <Code2 size={24} />, color: "bg-gradient-brand" },
-  { name: "n8n", url: "https://n8n.io", icon: <Workflow size={24} />, color: "bg-overproof-blue" },
-  { name: "Upwork", url: "https://upwork.com", icon: <Briefcase size={24} />, color: "bg-gradient-brand" },
+  { name: "Google Gemini", url: "https://gemini.google.com", icon: <Sparkles size={24} />, color: "bg-gradient-brand" },
+  // AI Tools
   { name: "ChatGPT", url: "https://chat.openai.com", icon: <MessageSquare size={24} />, color: "bg-overproof-red" },
   { name: "Claude", url: "https://claude.ai", icon: <Bot size={24} />, color: "bg-overproof-navy" },
-  { name: "Google Gemini", url: "https://gemini.google.com", icon: <Sparkles size={24} />, color: "bg-gradient-brand" },
+  { name: "Lovable", url: "https://lovable.dev", icon: <Code2 size={24} />, color: "bg-gradient-brand" },
+  // Productivity Apps
+  { name: "n8n", url: "https://n8n.io", icon: <Workflow size={24} />, color: "bg-overproof-blue" },
+  { name: "Upwork", url: "https://upwork.com", icon: <Briefcase size={24} />, color: "bg-gradient-brand" },
   { name: "Overproof Agent", url: "https://overproof-agent.ai", icon: <Hand size={24} />, color: "bg-overproof-navy" },
   { name: "HeyGen", url: "https://app.heygen.com/home", icon: <Play size={24} />, color: "bg-gradient-brand" },
   { name: "AnswerRocket", url: "https://overproof.prod.answerrocket.com", icon: <Brain size={24} />, color: "bg-gradient-navy" },
