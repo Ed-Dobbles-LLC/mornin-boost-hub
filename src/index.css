@@ -1,15 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
 @layer base {
   :root {
-    /* Overproof Brand Colors */
-    --background: 0 0% 98%;
+    /* ── Light base ── */
+    --background: 210 20% 97%;
     --foreground: 213 84% 11%;
 
     --card: 0 0% 100%;
@@ -18,112 +16,90 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 213 84% 11%;
 
-    /* Overproof Primary Red - matching report design */
-    --primary: 0 65% 58%;
+    /* Primary = Overproof Red */
+    --primary: 0 65% 55%;
     --primary-foreground: 0 0% 100%;
 
-    /* Overproof Navy Blue - deeper navy from report */
+    /* Secondary = Navy */
     --secondary: 213 100% 12%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 210 40% 96%;
-    --muted-foreground: 213 25% 45%;
+    --muted: 210 30% 94%;
+    --muted-foreground: 213 30% 42%;
 
-    /* Overproof Proof Blue - HEX #2E4A6E to HSL */
-    --accent: 213 43% 31%;
+    /* Accent = Navy Blue */
+    --accent: 213 50% 28%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 213 20% 90%;
-    --input: 213 20% 90%;
-    --ring: 0 69% 65%;
+    --border: 213 20% 88%;
+    --input: 213 20% 88%;
+    --ring: 0 65% 55%;
 
-    /* Overproof Brand Colors - matching report */
-    --overproof-red: 0 65% 58%;
+    --radius: 0.625rem;
+
+    /* Brand tokens — used by existing components */
+    --overproof-red:  0 65% 55%;
     --overproof-navy: 213 100% 12%;
     --overproof-blue: 213 50% 28%;
-    --eerie-black: 213 25% 15%;
-    --ghost-white: 0 0% 98%;
-    
-    /* Brand Gradients */
-    --gradient-brand: linear-gradient(135deg, hsl(var(--overproof-red)), hsl(var(--overproof-blue)));
-    --gradient-navy: linear-gradient(135deg, hsl(var(--overproof-navy)), hsl(var(--overproof-blue)));
-    --gradient-subtle: linear-gradient(135deg, hsl(var(--ghost-white)), hsl(210 20% 95%));
-    
-    /* Professional Shadows */
-    --shadow-soft: 0 2px 8px -2px hsl(var(--overproof-navy) / 0.1);
-    --shadow-medium: 0 4px 16px -4px hsl(var(--overproof-navy) / 0.15);
-    --shadow-elevated: 0 8px 32px -8px hsl(var(--overproof-navy) / 0.2);
+    --eerie-black:    213 25% 15%;
+    --ghost-white:    0 0% 98%;
 
-    --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 213 100% 8%;
-    --foreground: 0 0% 95%;
-
-    --card: 213 100% 10%;
-    --card-foreground: 0 0% 95%;
-
-    --popover: 213 100% 10%;
-    --popover-foreground: 0 0% 95%;
-
-    --primary: 0 69% 65%;
-    --primary-foreground: 0 0% 100%;
-
-    --secondary: 213 43% 31%;
-    --secondary-foreground: 0 0% 95%;
-
-    --muted: 213 25% 15%;
-    --muted-foreground: 210 15% 65%;
-
-    --accent: 0 69% 65%;
-    --accent-foreground: 0 0% 100%;
-
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 100%;
-
-    --border: 213 25% 20%;
-    --input: 213 25% 20%;
-    --ring: 0 69% 65%;
-
-    /* Dark mode brand colors */
-    --overproof-red: 0 69% 65%;
-    --overproof-navy: 213 100% 8%;
-    --overproof-blue: 213 43% 31%;
-    --eerie-black: 213 25% 8%;
-    --ghost-white: 0 0% 95%;
+    /* Sidebar */
+    --sidebar-background: 213 100% 10%;
+    --sidebar-foreground: 213 20% 85%;
+    --sidebar-primary: 0 65% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 213 60% 18%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 213 40% 20%;
+    --sidebar-ring: 0 65% 55%;
   }
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
+  * { @apply border-border; }
 
   body {
-    @apply bg-background text-foreground font-inter;
+    @apply bg-background text-foreground;
+    font-family: 'DM Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
   }
-  
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-inter font-semibold;
+
+  h1, h2, h3, h4 {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-weight: 400;
   }
+
+  ::selection {
+    background: hsl(0 65% 55%);
+    color: #fff;
+  }
+
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: hsl(var(--background)); }
+  ::-webkit-scrollbar-thumb { background: hsl(var(--border)); border-radius: 2px; }
+}
+
+.font-serif { font-family: 'Instrument Serif', Georgia, serif; }
+.font-sans  { font-family: 'DM Sans', sans-serif; }
+
+/* ── Existing component compat ── */
+.bg-gradient-brand  { background: linear-gradient(135deg, hsl(0 65% 55%), hsl(213 50% 28%)); }
+.bg-gradient-navy   { background: linear-gradient(135deg, hsl(213 100% 10%), hsl(213 50% 22%)); }
+.bg-gradient-subtle { background: hsl(var(--background)); }
+.bg-overproof-red   { background: hsl(0 65% 55%); }
+.bg-overproof-navy  { background: hsl(213 100% 12%); }
+.bg-overproof-blue  { background: hsl(213 50% 28%); }
+
+/* ── Shadows ── */
+.shadow-soft     { box-shadow: 0 2px 8px -2px hsl(213 84% 11% / 0.10); }
+.shadow-medium   { box-shadow: 0 4px 16px -4px hsl(213 84% 11% / 0.12); }
+.shadow-elevated { box-shadow: 0 8px 32px -8px hsl(213 84% 11% / 0.18); }
+
+/* ── Nav hero used in hub ── */
+.bg-gradient-hub-hero {
+  background: linear-gradient(135deg, hsl(213 100% 10%), hsl(213 60% 22%));
 }
