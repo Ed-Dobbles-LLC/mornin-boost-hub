@@ -91,7 +91,7 @@ export const CalendarBox = () => {
       <CardHeader className="pb-4">
         <div className="flex justify-between items-center">
           <CardTitle className="text-xl text-card-foreground font-semibold flex items-center gap-2">
-            <Calendar className="text-overproof-red" size={24} />
+            <Calendar className="text-dobbles-red" size={24} />
             Today's Schedule
           </CardTitle>
           <Button 

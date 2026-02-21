@@ -59,9 +59,9 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-gradient-subtle">
-      {/* Overproof Header Section */}
+      {/* Header Section */}
       <div className="relative h-40 bg-gradient-navy overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-overproof-navy via-overproof-blue to-overproof-navy"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-dobbles-navy via-dobbles-blue to-dobbles-navy"></div>
         <img 
           src={heroImage} 
           alt="Morning sunrise" 
@@ -71,7 +71,7 @@ const Index = () => {
           <div className="text-center text-white max-w-4xl px-6">
             <h1 className="text-4xl font-semibold mb-3">{greeting}</h1>
             <p className="text-xl opacity-90 font-medium">Ready to power better decisions?</p>
-            <div className="mt-4 inline-block bg-overproof-red px-4 py-2 rounded-full text-sm font-medium">
+            <div className="mt-4 inline-block bg-dobbles-red px-4 py-2 rounded-full text-sm font-medium">
               Your Productive Dashboard
             </div>
           </div>
@@ -93,7 +93,7 @@ const Index = () => {
               <h2 className="text-xl font-semibold text-card-foreground">
                 Healthy Recipe
               </h2>
-              <Button onClick={fetchRecipe} className="bg-overproof-blue text-white hover:scale-105 transition-transform">
+              <Button onClick={fetchRecipe} className="bg-dobbles-blue text-white hover:scale-105 transition-transform">
                 Next Recipe
               </Button>
             </div>
@@ -118,7 +118,7 @@ const Index = () => {
                 </h2>
                 <Button 
                   onClick={() => factBoxRef.current?.fetchFact()} 
-                  className="bg-overproof-blue text-white hover:scale-105 transition-transform"
+                  className="bg-dobbles-blue text-white hover:scale-105 transition-transform"
                 >
                   Next Fact
                 </Button>

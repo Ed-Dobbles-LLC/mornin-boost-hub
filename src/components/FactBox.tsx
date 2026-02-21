@@ -36,7 +36,7 @@ export const FactBox = forwardRef<FactBoxRef>((props, ref) => {
     <Card className="shadow-soft border-border/50">
       <CardHeader className="pb-4">
         <CardTitle className="text-xl text-card-foreground font-semibold flex items-center gap-2">
-          <Lightbulb className="text-overproof-red" size={24} />
+          <Lightbulb className="text-dobbles-red" size={24} />
           Random Facts
         </CardTitle>
       </CardHeader>

@@ -16,7 +16,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 213 84% 11%;
 
-    /* Primary = Overproof Red */
+    /* Primary = Coral Red */
     --primary: 0 65% 55%;
     --primary-foreground: 0 0% 100%;
 
@@ -41,9 +41,9 @@
     --radius: 0.625rem;
 
     /* Brand tokens — used by existing components */
-    --overproof-red:  0 65% 55%;
-    --overproof-navy: 213 100% 12%;
-    --overproof-blue: 213 50% 28%;
+    --dobbles-red:  0 65% 55%;
+    --dobbles-navy: 213 100% 12%;
+    --dobbles-blue: 213 50% 28%;
     --eerie-black:    213 25% 15%;
     --ghost-white:    0 0% 98%;
 
@@ -90,9 +90,9 @@
 .bg-gradient-brand  { background: linear-gradient(135deg, hsl(0 65% 55%), hsl(213 50% 28%)); }
 .bg-gradient-navy   { background: linear-gradient(135deg, hsl(213 100% 10%), hsl(213 50% 22%)); }
 .bg-gradient-subtle { background: hsl(var(--background)); }
-.bg-overproof-red   { background: hsl(0 65% 55%); }
-.bg-overproof-navy  { background: hsl(213 100% 12%); }
-.bg-overproof-blue  { background: hsl(213 50% 28%); }
+.bg-dobbles-red   { background: hsl(0 65% 55%); }
+.bg-dobbles-navy  { background: hsl(213 100% 12%); }
+.bg-dobbles-blue  { background: hsl(213 50% 28%); }
 
 /* ── Shadows ── */
 .shadow-soft     { box-shadow: 0 2px 8px -2px hsl(213 84% 11% / 0.10); }

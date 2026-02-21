@@ -40,7 +40,7 @@ export const RecipeCard = ({ recipe }: RecipeCardProps) => {
           }}
         />
         <div className="absolute top-4 right-4">
-          <Badge className="bg-overproof-red text-white font-medium">
+          <Badge className="bg-dobbles-red text-white font-medium">
             <ChefHat size={14} className="mr-1" />
             {recipe.strCategory}
           </Badge>
@@ -52,11 +52,11 @@ export const RecipeCard = ({ recipe }: RecipeCardProps) => {
         
         <div className="flex gap-4 text-sm text-muted-foreground">
           <div className="flex items-center gap-1">
-            <Clock size={16} className="text-overproof-blue" />
+            <Clock size={16} className="text-dobbles-blue" />
             <span>{recipe.strArea} cuisine</span>
           </div>
           <div className="flex items-center gap-1">
-            <Users size={16} className="text-overproof-blue" />
+            <Users size={16} className="text-dobbles-blue" />
             <span>{recipe.strCategory}</span>
           </div>
         </div>
@@ -75,12 +75,12 @@ export const RecipeCard = ({ recipe }: RecipeCardProps) => {
           <ul className="text-sm text-muted-foreground space-y-1">
             {ingredients.slice(0, 6).map((item, index) => (
               <li key={index} className="flex items-start">
-                <span className="text-overproof-red mr-2">•</span>
+                <span className="text-dobbles-red mr-2">•</span>
                 {item.meas} {item.ing}
               </li>
             ))}
             {ingredients.length > 6 && (
-              <li className="text-overproof-red font-medium">
+              <li className="text-dobbles-red font-medium">
                 +{ingredients.length - 6} more ingredients
               </li>
             )}

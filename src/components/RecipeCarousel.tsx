@@ -36,10 +36,10 @@ export const RecipeCarousel = () => {
           <CardTitle className="text-xl text-card-foreground font-semibold flex items-center justify-between">
             Healthy Recipe of the Moment
             <div className="flex gap-2">
-              <Button variant="outline" size="sm" onClick={togglePlayPause} className="hover:bg-overproof-red hover:text-white transition-colors">
+              <Button variant="outline" size="sm" onClick={togglePlayPause} className="hover:bg-dobbles-red hover:text-white transition-colors">
                 {isPlaying ? <Pause size={16} /> : <Play size={16} />}
               </Button>
-              <Button variant="outline" size="sm" onClick={handleNext} className="hover:bg-overproof-blue hover:text-white transition-colors">
+              <Button variant="outline" size="sm" onClick={handleNext} className="hover:bg-dobbles-blue hover:text-white transition-colors">
                 <SkipForward size={16} />
               </Button>
             </div>
