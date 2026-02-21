@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,56 +6,64 @@
 
 @layer base {
   :root {
-    /* ── Light base ── */
-    --background: 210 20% 97%;
-    --foreground: 213 84% 11%;
+    /* ── Dark-mode default (per Doctrine) ── */
+    --background: 0 0% 11%;          /* #1D1D1D */
+    --foreground: 206 60% 98%;       /* #F7FBFE */
 
-    --card: 0 0% 100%;
-    --card-foreground: 213 84% 11%;
+    --card: 0 0% 11%;                /* #1D1D1D */
+    --card-foreground: 206 60% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 213 84% 11%;
+    --popover: 0 0% 11%;
+    --popover-foreground: 206 60% 98%;
 
-    /* Primary = Overproof Red */
-    --primary: 0 65% 55%;
-    --primary-foreground: 0 0% 100%;
+    /* Primary = Coral Red #DB5461 */
+    --primary: 355 65% 59%;
+    --primary-foreground: 206 60% 98%;
 
-    /* Secondary = Navy */
-    --secondary: 213 100% 12%;
-    --secondary-foreground: 0 0% 100%;
+    /* Secondary = Deep Navy #060A57 */
+    --secondary: 237 88% 18%;
+    --secondary-foreground: 206 60% 98%;
 
-    --muted: 210 30% 94%;
-    --muted-foreground: 213 30% 42%;
+    --muted: 0 0% 18%;
+    --muted-foreground: 206 20% 70%;
 
-    /* Accent = Navy Blue */
-    --accent: 213 50% 28%;
-    --accent-foreground: 0 0% 100%;
+    /* Accent = Steel Blue #225A8E */
+    --accent: 210 62% 35%;
+    --accent-foreground: 206 60% 98%;
 
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive: 355 65% 59%;
+    --destructive-foreground: 206 60% 98%;
 
-    --border: 213 20% 88%;
-    --input: 213 20% 88%;
-    --ring: 0 65% 55%;
+    --border: 0 0% 100% / 0.10;
+    --input: 0 0% 100% / 0.10;
+    --ring: 355 65% 59%;
 
-    --radius: 0.625rem;
+    --radius: 0.5rem;
 
-    /* Brand tokens — used by existing components */
-    --overproof-red:  0 65% 55%;
-    --overproof-navy: 213 100% 12%;
-    --overproof-blue: 213 50% 28%;
-    --eerie-black:    213 25% 15%;
-    --ghost-white:    0 0% 98%;
+    /* Brand tokens */
+    --dobbles-red:   355 65% 59%;   /* #DB5461 */
+    --dobbles-navy:  237 88% 18%;   /* #060A57 */
+    --dobbles-blue:  210 62% 35%;   /* #225A8E */
+    --dobbles-teal:  163 100% 36%;  /* #00B98E */
+    --dobbles-sky:   195 96% 76%;   /* #85E4FD */
+    --dobbles-bright: 220 72% 53%;  /* #3273DB */
+
+    /* Backward compat aliases — used by existing components */
+    --overproof-red:  355 65% 59%;
+    --overproof-navy: 237 88% 18%;
+    --overproof-blue: 210 62% 35%;
+    --eerie-black:    0 0% 11%;
+    --ghost-white:    206 60% 98%;
 
     /* Sidebar */
-    --sidebar-background: 213 100% 10%;
-    --sidebar-foreground: 213 20% 85%;
-    --sidebar-primary: 0 65% 55%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 213 60% 18%;
-    --sidebar-accent-foreground: 0 0% 95%;
-    --sidebar-border: 213 40% 20%;
-    --sidebar-ring: 0 65% 55%;
+    --sidebar-background: 237 88% 18%;
+    --sidebar-foreground: 206 20% 85%;
+    --sidebar-primary: 355 65% 59%;
+    --sidebar-primary-foreground: 206 60% 98%;
+    --sidebar-accent: 210 62% 35%;
+    --sidebar-accent-foreground: 206 60% 98%;
+    --sidebar-border: 0 0% 100% / 0.10;
+    --sidebar-ring: 355 65% 59%;
   }
 }
 
@@ -64,18 +72,19 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Montserrat', 'Segoe UI', sans-serif;
     -webkit-font-smoothing: antialiased;
   }
 
   h1, h2, h3, h4 {
-    font-family: 'Instrument Serif', Georgia, serif;
-    font-weight: 400;
+    font-family: 'Montserrat', 'Segoe UI', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.05em;
   }
 
   ::selection {
-    background: hsl(0 65% 55%);
-    color: #fff;
+    background: hsl(355 65% 59%);
+    color: #F7FBFE;
   }
 
   ::-webkit-scrollbar { width: 4px; }
@@ -83,23 +92,23 @@
   ::-webkit-scrollbar-thumb { background: hsl(var(--border)); border-radius: 2px; }
 }
 
-.font-serif { font-family: 'Instrument Serif', Georgia, serif; }
-.font-sans  { font-family: 'DM Sans', sans-serif; }
+.font-serif { font-family: 'Montserrat', 'Segoe UI', sans-serif; font-weight: 700; }
+.font-sans  { font-family: 'Montserrat', 'Segoe UI', sans-serif; }
 
-/* ── Existing component compat ── */
-.bg-gradient-brand  { background: linear-gradient(135deg, hsl(0 65% 55%), hsl(213 50% 28%)); }
-.bg-gradient-navy   { background: linear-gradient(135deg, hsl(213 100% 10%), hsl(213 50% 22%)); }
+/* ── Gradient utilities ── */
+.bg-gradient-brand  { background: linear-gradient(135deg, #225A8E, #060A57, #8E083F, #DB5461); }
+.bg-gradient-navy   { background: linear-gradient(135deg, #060A57, #225A8E); }
 .bg-gradient-subtle { background: hsl(var(--background)); }
-.bg-overproof-red   { background: hsl(0 65% 55%); }
-.bg-overproof-navy  { background: hsl(213 100% 12%); }
-.bg-overproof-blue  { background: hsl(213 50% 28%); }
+.bg-overproof-red   { background: #DB5461; }
+.bg-overproof-navy  { background: #060A57; }
+.bg-overproof-blue  { background: #225A8E; }
 
-/* ── Shadows ── */
-.shadow-soft     { box-shadow: 0 2px 8px -2px hsl(213 84% 11% / 0.10); }
-.shadow-medium   { box-shadow: 0 4px 16px -4px hsl(213 84% 11% / 0.12); }
-.shadow-elevated { box-shadow: 0 8px 32px -8px hsl(213 84% 11% / 0.18); }
+/* ── Shadows (on dark backgrounds) ── */
+.shadow-soft     { box-shadow: 0 2px 8px -2px rgba(0,0,0,0.30); }
+.shadow-medium   { box-shadow: 0 4px 16px -4px rgba(0,0,0,0.35); }
+.shadow-elevated { box-shadow: 0 8px 32px -8px rgba(0,0,0,0.45); }
 
-/* ── Nav hero used in hub ── */
+/* ── Hub hero gradient ── */
 .bg-gradient-hub-hero {
-  background: linear-gradient(135deg, hsl(213 100% 10%), hsl(213 60% 22%));
+  background: linear-gradient(135deg, #060A57, #225A8E);
 }

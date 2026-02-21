@@ -52,6 +52,13 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				'dobbles-red': 'hsl(var(--dobbles-red))',
+				'dobbles-navy': 'hsl(var(--dobbles-navy))',
+				'dobbles-blue': 'hsl(var(--dobbles-blue))',
+				'dobbles-teal': 'hsl(var(--dobbles-teal))',
+				'dobbles-sky': 'hsl(var(--dobbles-sky))',
+				'dobbles-bright': 'hsl(var(--dobbles-bright))',
+				// backward compat aliases
 				'overproof-red': 'hsl(var(--overproof-red))',
 				'overproof-navy': 'hsl(var(--overproof-navy))',
 				'overproof-blue': 'hsl(var(--overproof-blue))',
@@ -74,7 +81,7 @@ export default {
 				'gradient-subtle': 'var(--gradient-subtle)',
 			},
 			fontFamily: {
-				'inter': ['Inter', 'sans-serif'],
+				'montserrat': ['Montserrat', 'Segoe UI', 'sans-serif'],
 			},
 			boxShadow: {
 				'soft': 'var(--shadow-soft)',
