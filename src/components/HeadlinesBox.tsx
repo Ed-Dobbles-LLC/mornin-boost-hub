@@ -97,7 +97,7 @@ export const HeadlinesBox = () => {
       <CardHeader className="pb-4">
         <div className="flex justify-between items-center">
           <CardTitle className="text-xl text-card-foreground font-semibold flex items-center gap-2">
-            <Newspaper className="text-overproof-red" size={24} />
+            <Newspaper className="text-primary" size={24} />
             Latest Headlines
           </CardTitle>
           <Button 
@@ -149,7 +149,7 @@ export const HeadlinesBox = () => {
                           href={article.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-overproof-blue hover:text-overproof-blue/80 transition-colors"
+                          className="text-accent hover:text-accent/80 transition-colors"
                         >
                           <ExternalLink size={14} />
                         </a>

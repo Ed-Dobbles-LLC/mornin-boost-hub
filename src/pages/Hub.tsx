@@ -8,6 +8,7 @@ import { useAuth } from "@/auth/AuthProvider";
 import { useNavigate, Link } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import { LogOut, Globe } from "lucide-react";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 const CATEGORIES = ["Vegetarian", "Vegan", "Seafood"];
 
@@ -72,6 +73,7 @@ export default function Hub() {
             <span className="font-sans text-xs text-muted-foreground ml-3 hidden md:block">/ Hub</span>
           </div>
           <div className="flex items-center gap-3">
+            <ThemeToggle />
             <Link
               to="/"
               className="inline-flex items-center gap-1.5 font-sans text-sm text-muted-foreground hover:text-foreground transition-colors"

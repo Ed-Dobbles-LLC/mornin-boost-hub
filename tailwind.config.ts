@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import tailwindcssAnimate from "tailwindcss-animate";
 
 export default {
 	darkMode: ["class"],
@@ -52,9 +53,9 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				'overproof-red': 'hsl(var(--overproof-red))',
-				'overproof-navy': 'hsl(var(--overproof-navy))',
-				'overproof-blue': 'hsl(var(--overproof-blue))',
+				'dobbles-red': 'hsl(var(--dobbles-red))',
+				'dobbles-navy': 'hsl(var(--dobbles-navy))',
+				'dobbles-blue': 'hsl(var(--dobbles-blue))',
 				'eerie-black': 'hsl(var(--eerie-black))',
 				'ghost-white': 'hsl(var(--ghost-white))',
 				sidebar: {
@@ -110,5 +111,5 @@ export default {
 			}
 		}
 	},
-	plugins: [require("tailwindcss-animate")],
+	plugins: [tailwindcssAnimate],
 } satisfies Config;

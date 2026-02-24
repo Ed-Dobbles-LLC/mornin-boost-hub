@@ -13,7 +13,8 @@ export default function Login() {
   const location = useLocation();
   const { session } = useAuth();
 
-  const from = (location.state as any)?.from?.pathname || "/hub";
+  const state = location.state as { from?: { pathname: string } } | null;
+  const from = state?.from?.pathname || "/hub";
 
   // If already logged in, redirect
   useEffect(() => {
@@ -33,8 +34,8 @@ export default function Login() {
       });
       if (error) throw error;
       setSent(true);
-    } catch (err: any) {
-      setError(err.message || "Something went wrong. Try again.");
+    } catch (err: unknown) {
+      setError(err instanceof Error ? err.message : "Something went wrong. Try again.");
     } finally {
       setLoading(false);
     }
