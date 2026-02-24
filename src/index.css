@@ -57,6 +57,57 @@
     --sidebar-border: 237 60% 22%;
     --sidebar-ring: 354 64% 59%;
   }
+
+  .dark {
+    /* ── Dark base ── */
+    --background: 237 90% 8%;
+    --foreground: 210 20% 92%;
+
+    --card: 237 60% 12%;
+    --card-foreground: 210 20% 92%;
+
+    --popover: 237 60% 12%;
+    --popover-foreground: 210 20% 92%;
+
+    /* Primary = Coral Red (slightly brighter for dark bg) */
+    --primary: 354 64% 62%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary = Navy (lighter for contrast on dark bg) */
+    --secondary: 237 50% 28%;
+    --secondary-foreground: 210 20% 92%;
+
+    --muted: 237 40% 16%;
+    --muted-foreground: 210 20% 60%;
+
+    /* Accent = Steel Blue (brighter for dark bg) */
+    --accent: 209 63% 42%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 237 30% 22%;
+    --input: 237 30% 22%;
+    --ring: 354 64% 62%;
+
+    /* Brand tokens stay the same */
+    --dobbles-red:  354 64% 62%;
+    --dobbles-navy: 237 90% 18%;
+    --dobbles-blue: 209 63% 42%;
+    --eerie-black:    213 25% 8%;
+    --ghost-white:    210 20% 92%;
+
+    /* Sidebar (already dark-friendly) */
+    --sidebar-background: 237 90% 10%;
+    --sidebar-foreground: 213 20% 85%;
+    --sidebar-primary: 354 64% 62%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 209 63% 30%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 237 40% 18%;
+    --sidebar-ring: 354 64% 62%;
+  }
 }
 
 @layer base {

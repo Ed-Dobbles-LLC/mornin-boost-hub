@@ -4,7 +4,7 @@
 Public portfolio site showcasing 4 production AI projects (Chat-to-Snowflake, AI Content Engine, ML Demand Forecasting, Distribution Intelligence), plus a protected morning productivity dashboard with quick-launch buttons, Spanish vocabulary, recipes, headlines, and random facts.
 
 ## Stack
-React 18 + TypeScript + Vite, styled with Tailwind CSS and shadcn/ui. Backend is Supabase (PostgreSQL, Auth via magic link, Edge Functions for news and calendar). Originally scaffolded through Lovable.
+React 18 + TypeScript + Vite, styled with Tailwind CSS and shadcn/ui. Backend is Supabase (PostgreSQL, Auth via magic link, Edge Functions for news). Originally scaffolded through Lovable.
 
 **Note:** This stack diverges from the doctrine's default (Python + Railway). The frontend-only nature of the site makes React/Supabase the right call here. If server-side logic is added later, evaluate whether to extend Supabase Edge Functions or migrate backend concerns to Railway + FastAPI.
 
@@ -12,14 +12,13 @@ React 18 + TypeScript + Vite, styled with Tailwind CSS and shadcn/ui. Backend is
 - Public site fully implemented: Home, About, Projects (4 detail pages), Contact
 - Protected `/hub` dashboard with Supabase auth (magic link)
 - Hub widgets: LaunchButtons (21 services), VocabBox (364 Spanish words from Supabase), RecipeCard (TheMealDB API), FactBox (uselessfacts API), HeadlinesBox (Hacker News via edge function)
-- CalendarBox exists but only works with public Google Calendars (API key auth); private calendar access requires OAuth 2.0
+- Dark mode toggle implemented via next-themes (defaults to dark per doctrine)
 - No TODO/FIXME markers in codebase
-- Dark mode hardcoded (no light/dark toggle)
 
 ## Supabase Resources
 - **Project ID:** `xwguviuinmafenlqwtka`
 - **Tables:** `contacts` (form submissions), `vocabulary` (364 Spanish word pairs)
-- **Edge Functions:** `fetch-news` (Hacker News), `google-calendar` (limited to public calendars)
+- **Edge Functions:** `fetch-news` (Hacker News)
 - **Auth:** Magic link email, RLS policies on both tables
 
 ## Next Milestone

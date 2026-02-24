@@ -14,7 +14,6 @@ Two apps in one repo, sharing components:
 
 **Private hub** — `/hub` (behind Supabase magic-link auth)
 - Widgets: LaunchButtons (21 services), VocabBox (Supabase-backed, 364 words), RecipeCard (TheMealDB API), FactBox (uselessfacts API), HeadlinesBox (Hacker News via edge function)
-- CalendarBox exists but is **not wired into Hub.tsx** — only works with public Google Calendars; private calendar requires OAuth 2.0
 - All widget components now use semantic tokens (`bg-primary`, `bg-accent`, `bg-secondary`, `text-primary`, `text-accent`)
 
 ## Current Deployment
@@ -24,9 +23,9 @@ Two apps in one repo, sharing components:
 - **Build:** `npm ci && npm run build` (see `railway.toml`)
 - **Supabase:** Handles auth, contacts table, vocabulary table, edge functions
 
-## Auth — Known Issue
+## Auth
 
-Magic link auth works, but **the Supabase Site URL must be set to `https://dobbles.ai`** in Supabase Dashboard → Authentication → URL Configuration. If it's set to `localhost:3000`, magic link emails redirect to localhost after clicking. The `Login.tsx` component correctly uses `window.location.origin` for `emailRedirectTo`, so once the Site URL is correct in Supabase, auth works end-to-end.
+Magic link auth works end-to-end. Supabase Site URL is set to `https://dobbles.ai`. The `Login.tsx` component uses `window.location.origin` for `emailRedirectTo`.
 
 ## Known Deviations from Doctrine
 
@@ -39,8 +38,8 @@ CSS HSL values now match the doctrine hex palette exactly:
 ### Fonts
 Doctrine specifies Montserrat. This site uses Instrument Serif (headings) + DM Sans (body). This is a deliberate aesthetic choice for the portfolio — intentional exception.
 
-### Dark Mode
-Doctrine says dark mode default. Site runs light mode. `darkMode: ["class"]` is configured in Tailwind but the `dark` class is never applied. No toggle exists.
+### Dark Mode — FIXED
+Dark mode toggle implemented via `next-themes`. Light/dark toggle in SiteNav and Hub header. `darkMode: ["class"]` in Tailwind, dark CSS variables in `index.css`.
 
 ### Stack
 React + Supabase instead of doctrine's default Python + Railway. Justified: this is a frontend-only site. See PROJECT.md for details.
@@ -49,7 +48,7 @@ React + Supabase instead of doctrine's default Python + Railway. Justified: this
 - **Project ID:** `xwguviuinmafenlqwtka`
 - **Client:** `src/integrations/supabase/client.ts` (URL and anon key are hardcoded, not from env vars — Lovable-generated pattern)
 - **Tables:** `contacts` (form submissions), `vocabulary` (364 Spanish word pairs)
-- **Edge Functions:** `fetch-news` (Hacker News), `google-calendar` (public calendars only)
+- **Edge Functions:** `fetch-news` (Hacker News)
 - **Auth:** Magic link email, RLS on both tables
 - **Env vars:** `VITE_SUPABASE_URL`, `VITE_SUPABASE_PUBLISHABLE_KEY` (referenced in `.env` but the client.ts file doesn't actually read them — it uses hardcoded values)
 
@@ -67,7 +66,4 @@ Lovable may push commits to this repo — watch for merge conflicts.
 
 ## Next Steps (prioritized)
 
-1. **Fix Supabase Site URL** — Set to `https://dobbles.ai` in Supabase dashboard so magic link auth works in production. This is a manual step, not a code change.
-2. **Dark mode** — Decide: implement dark mode toggle (doctrine says dark default) or document light mode as intentional exception.
-3. **CalendarBox** — Either implement OAuth 2.0 for private Google Calendar access, or remove the widget. Currently dead functionality.
-4. **Supabase client cleanup** — Consider reading URL/key from env vars instead of hardcoded values (low priority, Lovable pattern).
+1. **Supabase client cleanup** — Consider reading URL/key from env vars instead of hardcoded values (low priority, Lovable pattern).
