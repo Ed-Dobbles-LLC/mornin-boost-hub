@@ -17,7 +17,7 @@ React 18 + TypeScript + Vite, styled with Tailwind CSS and shadcn/ui. Backend is
 - Dark mode hardcoded (no light/dark toggle)
 
 ## Supabase Resources
-- **Project ID:** `xyulaaievgvkfrwwhgrw`
+- **Project ID:** `xwguviuinmafenlqwtka`
 - **Tables:** `contacts` (form submissions), `vocabulary` (364 Spanish word pairs)
 - **Edge Functions:** `fetch-news` (Hacker News), `google-calendar` (limited to public calendars)
 - **Auth:** Magic link email, RLS policies on both tables

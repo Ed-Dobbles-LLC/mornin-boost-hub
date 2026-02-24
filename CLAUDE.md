@@ -46,7 +46,7 @@ Doctrine says dark mode default. Site runs light mode. `darkMode: ["class"]` is 
 React + Supabase instead of doctrine's default Python + Railway. Justified: this is a frontend-only site. See PROJECT.md for details.
 
 ## Supabase
-- **Project ID:** `xyulaaievgvkfrwwhgrw`
+- **Project ID:** `xwguviuinmafenlqwtka`
 - **Client:** `src/integrations/supabase/client.ts` (URL and anon key are hardcoded, not from env vars — Lovable-generated pattern)
 - **Tables:** `contacts` (form submissions), `vocabulary` (364 Spanish word pairs)
 - **Edge Functions:** `fetch-news` (Hacker News), `google-calendar` (public calendars only)
