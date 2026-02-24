@@ -53,7 +53,7 @@ export const VocabBox = () => {
     <Card className="shadow-soft border-border/50">
       <CardHeader className="pb-4">
         <CardTitle className="text-xl text-card-foreground font-semibold flex items-center gap-2">
-          <Languages className="text-dobbles-red" size={24} />
+          <Languages className="text-primary" size={24} />
           Spanish Vocabulary
         </CardTitle>
       </CardHeader>
@@ -75,7 +75,7 @@ export const VocabBox = () => {
         <Button 
           onClick={handleNext}
           disabled={loading || vocabPairs.length === 0}
-          className="w-full bg-dobbles-blue text-white hover:scale-105 transition-transform font-medium disabled:opacity-50"
+          className="w-full bg-accent text-accent-foreground hover:scale-105 transition-transform font-medium disabled:opacity-50"
         >
           <RefreshCw size={16} className="mr-2" />
           Next Word

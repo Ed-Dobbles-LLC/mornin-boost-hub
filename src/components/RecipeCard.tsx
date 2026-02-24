@@ -10,7 +10,7 @@ export type Recipe = {
   strArea: string;
   strInstructions: string;
   strMealThumb: string;
-  [key: string]: any; // for strIngredientN/strMeasureN
+  [key: string]: string | undefined;
 };
 
 interface RecipeCardProps {
@@ -40,7 +40,7 @@ export const RecipeCard = ({ recipe }: RecipeCardProps) => {
           }}
         />
         <div className="absolute top-4 right-4">
-          <Badge className="bg-dobbles-red text-white font-medium">
+          <Badge className="bg-primary text-primary-foreground font-medium">
             <ChefHat size={14} className="mr-1" />
             {recipe.strCategory}
           </Badge>
@@ -52,11 +52,11 @@ export const RecipeCard = ({ recipe }: RecipeCardProps) => {
         
         <div className="flex gap-4 text-sm text-muted-foreground">
           <div className="flex items-center gap-1">
-            <Clock size={16} className="text-dobbles-blue" />
+            <Clock size={16} className="text-accent" />
             <span>{recipe.strArea} cuisine</span>
           </div>
           <div className="flex items-center gap-1">
-            <Users size={16} className="text-dobbles-blue" />
+            <Users size={16} className="text-accent" />
             <span>{recipe.strCategory}</span>
           </div>
         </div>
@@ -75,12 +75,12 @@ export const RecipeCard = ({ recipe }: RecipeCardProps) => {
           <ul className="text-sm text-muted-foreground space-y-1">
             {ingredients.slice(0, 6).map((item, index) => (
               <li key={index} className="flex items-start">
-                <span className="text-dobbles-red mr-2">•</span>
+                <span className="text-primary mr-2">•</span>
                 {item.meas} {item.ing}
               </li>
             ))}
             {ingredients.length > 6 && (
-              <li className="text-dobbles-red font-medium">
+              <li className="text-primary font-medium">
                 +{ingredients.length - 6} more ingredients
               </li>
             )}

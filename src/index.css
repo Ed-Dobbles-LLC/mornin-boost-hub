@@ -16,19 +16,19 @@
     --popover: 0 0% 100%;
     --popover-foreground: 213 84% 11%;
 
-    /* Primary = Coral Red */
-    --primary: 0 65% 55%;
+    /* Primary = Coral Red (#DB5461) */
+    --primary: 354 64% 59%;
     --primary-foreground: 0 0% 100%;
 
-    /* Secondary = Navy */
-    --secondary: 213 100% 12%;
+    /* Secondary = Navy (#060A57) */
+    --secondary: 237 90% 18%;
     --secondary-foreground: 0 0% 100%;
 
     --muted: 210 30% 94%;
     --muted-foreground: 213 30% 42%;
 
-    /* Accent = Navy Blue */
-    --accent: 213 50% 28%;
+    /* Accent = Steel Blue (#225A8E) */
+    --accent: 209 63% 35%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
@@ -36,26 +36,26 @@
 
     --border: 213 20% 88%;
     --input: 213 20% 88%;
-    --ring: 0 65% 55%;
+    --ring: 354 64% 59%;
 
     --radius: 0.625rem;
 
-    /* Brand tokens — used by existing components */
-    --dobbles-red:  0 65% 55%;
-    --dobbles-navy: 213 100% 12%;
-    --dobbles-blue: 213 50% 28%;
+    /* Brand tokens — mapped to semantic values */
+    --dobbles-red:  354 64% 59%;
+    --dobbles-navy: 237 90% 18%;
+    --dobbles-blue: 209 63% 35%;
     --eerie-black:    213 25% 15%;
     --ghost-white:    0 0% 98%;
 
     /* Sidebar */
-    --sidebar-background: 213 100% 10%;
+    --sidebar-background: 237 90% 14%;
     --sidebar-foreground: 213 20% 85%;
-    --sidebar-primary: 0 65% 55%;
+    --sidebar-primary: 354 64% 59%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 213 60% 18%;
+    --sidebar-accent: 209 63% 25%;
     --sidebar-accent-foreground: 0 0% 95%;
-    --sidebar-border: 213 40% 20%;
-    --sidebar-ring: 0 65% 55%;
+    --sidebar-border: 237 60% 22%;
+    --sidebar-ring: 354 64% 59%;
   }
 }
 
@@ -74,7 +74,7 @@
   }
 
   ::selection {
-    background: hsl(0 65% 55%);
+    background: hsl(354 64% 59%);
     color: #fff;
   }
 
@@ -87,12 +87,12 @@
 .font-sans  { font-family: 'DM Sans', sans-serif; }
 
 /* ── Existing component compat ── */
-.bg-gradient-brand  { background: linear-gradient(135deg, hsl(0 65% 55%), hsl(213 50% 28%)); }
-.bg-gradient-navy   { background: linear-gradient(135deg, hsl(213 100% 10%), hsl(213 50% 22%)); }
+.bg-gradient-brand  { background: linear-gradient(135deg, hsl(354 64% 59%), hsl(209 63% 35%)); }
+.bg-gradient-navy   { background: linear-gradient(135deg, hsl(237 90% 16%), hsl(209 63% 30%)); }
 .bg-gradient-subtle { background: hsl(var(--background)); }
-.bg-dobbles-red   { background: hsl(0 65% 55%); }
-.bg-dobbles-navy  { background: hsl(213 100% 12%); }
-.bg-dobbles-blue  { background: hsl(213 50% 28%); }
+.bg-dobbles-red   { background: hsl(354 64% 59%); }
+.bg-dobbles-navy  { background: hsl(237 90% 18%); }
+.bg-dobbles-blue  { background: hsl(209 63% 35%); }
 
 /* ── Shadows ── */
 .shadow-soft     { box-shadow: 0 2px 8px -2px hsl(213 84% 11% / 0.10); }
@@ -101,5 +101,5 @@
 
 /* ── Nav hero used in hub ── */
 .bg-gradient-hub-hero {
-  background: linear-gradient(135deg, hsl(213 100% 10%), hsl(213 60% 22%));
+  background: linear-gradient(135deg, hsl(237 90% 14%), hsl(209 63% 30%));
 }

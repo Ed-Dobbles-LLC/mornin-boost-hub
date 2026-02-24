@@ -58,9 +58,11 @@ export default function Contact() {
       toast({ title: "Message received!", description: "I'll be in touch within 24 hours." });
       setForm({ name: "", email: "", reason: REASONS[0], message: "" });
     } catch {
-      // Graceful fallback — form still works visually even if table not yet created
-      toast({ title: "Message received!", description: "I'll be in touch within 24 hours." });
-      setForm({ name: "", email: "", reason: REASONS[0], message: "" });
+      toast({
+        title: "Something went wrong",
+        description: "Your message couldn't be saved. Please try again or reach out directly.",
+        variant: "destructive",
+      });
     } finally {
       setLoading(false);
     }
@@ -102,7 +104,7 @@ export default function Contact() {
                   <input
                     type={f.type}
                     name={f.name}
-                    value={(form as any)[f.name]}
+                    value={form[f.name as keyof typeof form]}
                     onChange={handleChange}
                     placeholder={f.placeholder}
                     required
