@@ -15,6 +15,7 @@ import ProjectDetail from "./pages/ProjectDetail";
 import Contact       from "./pages/Contact";
 import Login         from "./pages/Login";
 import Hub           from "./pages/Hub";
+import AuthCallback  from "./pages/AuthCallback";
 import NotFound      from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -35,6 +36,7 @@ const App = () => (
             <Route path="/projects/:slug"    element={<ProjectDetail />} />
             <Route path="/contact"           element={<Contact />} />
             <Route path="/login"             element={<Login />} />
+            <Route path="/auth/callback"    element={<AuthCallback />} />
 
             {/* ── Private hub ── */}
             <Route path="/hub" element={
