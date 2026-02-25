@@ -1,4 +1,5 @@
 import { LaunchButtons } from "@/components/LaunchButtons";
+import { MyTools } from "@/components/MyTools";
 import { RecipeCard, Recipe } from "@/components/RecipeCard";
 import { VocabBox } from "@/components/VocabBox";
 import { FactBox, FactBoxRef } from "@/components/FactBox";
@@ -104,13 +105,13 @@ export default function Hub() {
 
       {/* Dashboard content */}
       <div className="max-w-7xl mx-auto px-6 py-8">
-        {/* Top Row */}
-        <div className="grid lg:grid-cols-2 gap-6 mb-6">
+        {/* Top Row — Quick Launch + My Tools */}
+        <div className="grid lg:grid-cols-[1fr_340px] gap-6 mb-6">
           <LaunchButtons />
-          <VocabBox />
+          <MyTools />
         </div>
 
-        {/* Middle Row */}
+        {/* Middle Row — Recipe + Facts/Headlines */}
         <div className="grid lg:grid-cols-2 gap-6 mb-6 items-stretch">
           <div className="flex flex-col">
             <div className="flex justify-between items-center mb-4">
@@ -155,6 +156,11 @@ export default function Hub() {
               <HeadlinesBox />
             </div>
           </div>
+        </div>
+
+        {/* Bottom Row — Spanish Vocabulary */}
+        <div className="mb-6">
+          <VocabBox />
         </div>
       </div>
 

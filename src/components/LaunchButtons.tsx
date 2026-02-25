@@ -1,17 +1,15 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { 
-  Mail, 
-  MessageCircle, 
-  Video, 
-  FileSpreadsheet, 
-  HardDrive, 
-  FileText, 
-  Presentation, 
-  Code2, 
-  Workflow, 
-  Bot, 
-  MessageSquare, 
+import {
+  Mail,
+  MessageCircle,
+  Video,
+  FileSpreadsheet,
+  HardDrive,
+  FileText,
+  Presentation,
+  Bot,
+  MessageSquare,
   Briefcase,
   Calendar,
   Brain,
@@ -20,7 +18,6 @@ import {
   Play,
   Cloud,
   Layers,
-  Factory,
   Linkedin
 } from "lucide-react";
 
@@ -46,14 +43,11 @@ const launchButtons: LaunchButton[] = [
   { name: "ChatGPT", url: "https://chat.openai.com", icon: <MessageSquare size={24} />, color: "bg-overproof-red" },
   { name: "Claude", url: "https://claude.ai", icon: <Bot size={24} />, color: "bg-overproof-navy" },
   { name: "Google Gemini", url: "https://gemini.google.com", icon: <Sparkles size={24} />, color: "bg-gradient-brand" },
-  { name: "Lovable", url: "https://lovable.dev", icon: <Code2 size={24} />, color: "bg-gradient-brand" },
   // Productivity Apps
-  { name: "n8n", url: "https://n8n.io", icon: <Workflow size={24} />, color: "bg-overproof-blue" },
   { name: "Upwork", url: "https://upwork.com", icon: <Briefcase size={24} />, color: "bg-gradient-brand" },
   { name: "Overproof Agent", url: "https://overproof-agent.ai", icon: <Hand size={24} />, color: "bg-overproof-navy" },
   { name: "HeyGen", url: "https://app.heygen.com/home", icon: <Play size={24} />, color: "bg-gradient-brand" },
   { name: "Gamma", url: "https://gamma.app/create", icon: <Layers size={24} />, color: "bg-overproof-red" },
-  { name: "Factory", url: "https://app.factory.ai/sessions", icon: <Factory size={24} />, color: "bg-overproof-navy" },
   { name: "LinkedIn", url: "https://www.linkedin.com/in/ed-dobbles/", icon: <Linkedin size={24} />, color: "bg-overproof-blue" },
   { name: "AnswerRocket", url: "https://overproof.prod.answerrocket.com", icon: <Brain size={24} />, color: "bg-gradient-navy" },
 ];
