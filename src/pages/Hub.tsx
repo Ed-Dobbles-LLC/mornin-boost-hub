@@ -1,4 +1,5 @@
 import { LaunchButtons } from "@/components/LaunchButtons";
+import { MyTools } from "@/components/MyTools";
 import { RecipeCard, Recipe } from "@/components/RecipeCard";
 import { VocabBox } from "@/components/VocabBox";
 import { FactBox, FactBoxRef } from "@/components/FactBox";
@@ -109,7 +110,10 @@ export default function Hub() {
         {/* Top Row */}
         <div className="grid lg:grid-cols-2 gap-6 mb-6">
           <LaunchButtons />
-          <VocabBox />
+          <div className="space-y-6">
+            <MyTools />
+            <VocabBox />
+          </div>
         </div>
 
         {/* Middle Row */}
