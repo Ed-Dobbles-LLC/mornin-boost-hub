@@ -23,7 +23,7 @@ Two apps in one repo, sharing components:
 - **Hosting:** Railway (static SPA via `npx serve dist -s`)
 - **Domain:** `dobbles.ai` (custom domain on Railway — must be added manually in Railway dashboard if redeployed)
 - **Build:** `npm ci && npm run build` (see `railway.toml`)
-- **Auto-deploy:** Railway watches the `main` branch. Any push/merge to `main` triggers a build and deploy automatically.
+- **Auto-deploy:** Railway watches the branch set in Railway dashboard → Settings → Source → "Branch connected to production". Ensure this is set to `main`. (It was previously misconfigured to an old `claude/*` branch, which caused deploys to silently use stale code.)
 - **Supabase:** Handles auth, contacts table, vocabulary table, edge functions
 
 ### Deployment Workflow (Claude Code sessions)
