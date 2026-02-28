@@ -13,15 +13,28 @@ Two apps in one repo, sharing components:
 - Pages use semantic Tailwind tokens (`bg-primary`, `text-foreground`)
 
 **Private hub** — `/hub` (behind Supabase magic-link auth)
-- Widgets: LaunchButtons (21 services), VocabBox (Supabase-backed, 364 words), RecipeCard (TheMealDB API), FactBox (uselessfacts API), HeadlinesBox (Hacker News via edge function)
-- All widget components now use semantic tokens (`bg-primary`, `bg-accent`, `bg-secondary`, `text-primary`, `text-accent`)
+- Widgets: LaunchButtons (quick-launch grid), MyTools (Railway app links), VocabBox (Supabase-backed, 364 words), RecipeCard (TheMealDB API), FactBox (uselessfacts API), HeadlinesBox (Hacker News via edge function)
+- **LaunchButtons** (`src/components/LaunchButtons.tsx`): Grid of icon buttons for Google apps, AI tools, and productivity apps. Each entry has `name`, `url`, `icon`, `color`.
+- **MyTools** (`src/components/MyTools.tsx`): Card list of Railway-hosted tools the user has built (Job Hunt, Personal Podcasts, Chess Coach, AR Intel). Each entry has `name`, `description`, `url`, `icon`, `status`. When the user asks to add a new tool/app, add it here.
+- All widget components use semantic tokens (`bg-primary`, `bg-accent`, `bg-secondary`, `text-primary`, `text-accent`)
 
 ## Current Deployment
 
 - **Hosting:** Railway (static SPA via `npx serve dist -s`)
 - **Domain:** `dobbles.ai` (custom domain on Railway — must be added manually in Railway dashboard if redeployed)
 - **Build:** `npm ci && npm run build` (see `railway.toml`)
+- **Auto-deploy:** Railway watches the `main` branch. Any push/merge to `main` triggers a build and deploy automatically.
 - **Supabase:** Handles auth, contacts table, vocabulary table, edge functions
+
+### Deployment Workflow (Claude Code sessions)
+
+Claude Code can only push to `claude/*` branches, not `main` directly. To get changes deployed:
+
+1. Commit and push changes to the `claude/<branch-name>` feature branch
+2. The user merges the PR on GitHub (`claude/<branch>` → `main`)
+3. Railway auto-deploys from `main`
+
+**Important:** Always ensure the feature branch is rebased on `origin/main` before pushing, so the PR merges cleanly. If the branch has diverged, reset it with `git checkout -B <branch> origin/main` and re-apply changes.
 
 ## Auth
 
@@ -58,7 +71,7 @@ npm run dev        # port 8080
 npm run build      # production build → dist/
 ```
 60+ shadcn/ui files in `src/components/ui/` — stock components, don't modify unless necessary.
-Lovable may push commits to this repo — watch for merge conflicts.
+This repo is the sole source of truth. No external tools (Lovable, etc.) push to it.
 
 ## Remaining lint issues
 2 errors in stock shadcn/ui files (`command.tsx`, `textarea.tsx`) — empty interface types. Not worth modifying stock components.
