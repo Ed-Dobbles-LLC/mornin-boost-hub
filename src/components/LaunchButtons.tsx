@@ -22,7 +22,8 @@ import {
   Layers,
   Factory,
   Linkedin,
-  DollarSign
+  DollarSign,
+  BarChart3
 } from "lucide-react";
 
 interface LaunchButton {
@@ -58,6 +59,7 @@ const launchButtons: LaunchButton[] = [
   { name: "LinkedIn", url: "https://www.linkedin.com/in/ed-dobbles/", icon: <Linkedin size={24} />, color: "bg-accent" },
   { name: "AnswerRocket", url: "https://overproof.prod.answerrocket.com", icon: <Brain size={24} />, color: "bg-gradient-navy" },
   { name: "Cost Tracker", url: "https://web-production-ed8e5.up.railway.app", icon: <DollarSign size={24} />, color: "bg-gradient-brand" },
+  { name: "AR Intel", url: "https://ar-intelligence-dashboard-production.up.railway.app", icon: <BarChart3 size={24} />, color: "bg-primary" },
 ];
 
 export const LaunchButtons = () => {
