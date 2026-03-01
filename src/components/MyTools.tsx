@@ -6,6 +6,9 @@ import {
   Crown,
   BarChart3,
   ExternalLink,
+  BookOpen,
+  DollarSign,
+  Building2,
 } from "lucide-react";
 
 interface Tool {
@@ -43,6 +46,27 @@ const tools: Tool[] = [
     description: "AnswerRocket positioning & content analysis",
     url: "https://ar-intelligence-dashboard-production.up.railway.app",
     icon: <BarChart3 size={22} />,
+    status: "live",
+  },
+  {
+    name: "Blog Reader",
+    description: "Blog ingestion & content analysis",
+    url: "https://github.com/Ed-Dobbles-LLC/blog-reader",
+    icon: <BookOpen size={22} />,
+    status: "live",
+  },
+  {
+    name: "Cost Tracker",
+    description: "AI spend tracking & optimization",
+    url: "https://github.com/Ed-Dobbles-LLC/cost-tracker",
+    icon: <DollarSign size={22} />,
+    status: "live",
+  },
+  {
+    name: "Company Researcher",
+    description: "Automated company intelligence",
+    url: "https://github.com/Ed-Dobbles-LLC/company-researcher",
+    icon: <Building2 size={22} />,
     status: "live",
   },
 ];
