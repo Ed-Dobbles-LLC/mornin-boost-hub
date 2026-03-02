@@ -23,7 +23,7 @@ const PROOF = [
   { value: "$300M+", label: "Enterprise value created" },
   { value: "25+", label: "Years in analytics leadership" },
   { value: "60 FTE", label: "Largest team led · $17M budget" },
-  { value: "4", label: "AI products in production" },
+  { value: "4", label: "Enterprise transformations delivered" },
 ];
 
 /* ── Operating model data (trimmed descriptions) ── */
@@ -208,8 +208,11 @@ export default function Home() {
                 <p style={{ fontFamily: font, fontWeight: 400, fontSize: 13, color: C.sky, marginBottom: 24, letterSpacing: "0.02em" }}>
                   DBA, Rutgers University
                 </p>
-                <p style={{ fontFamily: font, fontWeight: 400, fontSize: "clamp(16px, 2vw, 19px)", lineHeight: 1.75, color: C.muted, maxWidth: 620 }}>
-                  <span style={{ color: C.text, fontWeight: 700 }}>The Geek that can Speak</span> — 25 years transforming data into competitive advantage for Fortune 500 companies. I don't just talk about AI-powered analytics. I build it.
+                <p style={{ fontFamily: font, fontWeight: 700, fontSize: "clamp(17px, 2.2vw, 21px)", lineHeight: 1.65, color: C.text, maxWidth: 620, marginBottom: 10 }}>
+                  25 years turning analytics teams into competitive weapons for Fortune 500 companies.
+                </p>
+                <p style={{ fontFamily: font, fontWeight: 700, fontSize: "clamp(13px, 1.6vw, 15px)", letterSpacing: "0.04em", color: C.red }}>
+                  The Geek that can Speak
                 </p>
               </div>
               {/* Headshot */}
@@ -418,21 +421,20 @@ export default function Home() {
 
       <div style={divider} />
 
-      {/* ═══ SECTION 5: LET'S CONNECT ═══ */}
+      {/* ═══ SECTION 5: CTA ═══ */}
       <section>
         <div style={{ ...sectionPad, textAlign: "center" }}>
           <FadeIn>
-            <p style={{ ...sectionHeader, textAlign: "center" }}>LET'S TALK</p>
-            <p style={{ fontFamily: font, fontWeight: 400, fontSize: 17, lineHeight: 1.75, color: C.muted, maxWidth: 560, margin: "0 auto 48px" }}>
-              Interested in what an AI-powered analytics operating model could do for your organization? I'm always open to a conversation.
+            <p style={{ ...sectionHeader, textAlign: "center" }}>EXPLORING SENIOR LEADERSHIP OPPORTUNITIES</p>
+            <p style={{ fontFamily: font, fontWeight: 400, fontSize: 17, lineHeight: 1.75, color: C.muted, maxWidth: 620, margin: "0 auto 48px" }}>
+              I'm looking for my next enterprise analytics leadership role — CAO, CDO, or VP Analytics — where 25 years of transformation experience and a proven operating model can drive measurable impact from Day 1.
             </p>
           </FadeIn>
           <FadeIn>
-            <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 16, marginBottom: 20 }}>
+            <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 16, marginBottom: 36 }}>
               <a
-                href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3i0I4YfvjPviD-BuYBOrydiCoKdoMEmFfyqRVSZWrW8e28BlZFToC-bqI1PXJEsd9HpzAhZ54p?gv=true"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/Ed_Dobbles_Resume.pdf"
+                download
                 style={{
                   fontFamily: font, fontWeight: 700, fontSize: 14,
                   backgroundColor: C.red, color: C.text,
@@ -443,7 +445,7 @@ export default function Home() {
                 onMouseEnter={e => (e.currentTarget.style.filter = "brightness(1.12)")}
                 onMouseLeave={e => (e.currentTarget.style.filter = "brightness(1)")}
               >
-                Schedule a Conversation
+                Download Resume
               </a>
               <a
                 href="mailto:Ed@Dobbles.AI"
@@ -459,24 +461,6 @@ export default function Home() {
                 onMouseLeave={e => { e.currentTarget.style.backgroundColor = "transparent"; e.currentTarget.style.color = C.red; }}
               >
                 Send an Email
-              </a>
-            </div>
-            <div style={{ marginBottom: 36 }}>
-              <a
-                href="/Ed_Dobbles_Resume.docx"
-                download
-                style={{
-                  fontFamily: font, fontWeight: 600, fontSize: 13,
-                  color: C.muted,
-                  textDecoration: "none",
-                  borderBottom: `1px solid ${C.divider}`,
-                  paddingBottom: 2,
-                  transition: "color 0.2s, border-color 0.2s",
-                }}
-                onMouseEnter={e => { e.currentTarget.style.color = C.text; e.currentTarget.style.borderColor = C.text; }}
-                onMouseLeave={e => { e.currentTarget.style.color = C.muted; e.currentTarget.style.borderColor = C.divider; }}
-              >
-                ↓ Download Resume
               </a>
             </div>
             <a
