@@ -147,7 +147,7 @@ const divider: React.CSSProperties = {
 /* ── Logo strip data ── */
 const LOGOS = [
   { src: "/logo-diageo.png", alt: "Diageo" },
-  { src: "/logo-bestbuy.jpg", alt: "Best Buy" },
+  { src: "/logo-bestbuy.png", alt: "Best Buy" },
   { src: "/logo-hrblock.png", alt: "H&R Block" },
   { src: "/logo-supervalu.png", alt: "SuperValu" },
   { src: "/logo-michigan-state.png", alt: "Michigan State University" },
@@ -267,8 +267,8 @@ export default function Home() {
               flexWrap: "wrap",
               alignItems: "center",
               justifyContent: "center",
-              gap: "clamp(24px, 4vw, 48px)",
-              rowGap: 24,
+              gap: "clamp(20px, 3vw, 36px)",
+              rowGap: 20,
             }}>
               {LOGOS.map((logo) => (
                 <img
@@ -276,16 +276,15 @@ export default function Home() {
                   src={logo.src}
                   alt={logo.alt}
                   style={{
-                    height: "clamp(28px, 4vw, 40px)",
+                    height: "clamp(26px, 3.5vw, 38px)",
                     width: "auto",
                     maxWidth: 140,
                     objectFit: "contain",
-                    filter: "grayscale(1) brightness(1.6) contrast(0.6)",
-                    opacity: 0.45,
-                    transition: "opacity 0.2s, filter 0.2s",
+                    opacity: 0.4,
+                    transition: "opacity 0.2s",
                   }}
-                  onMouseEnter={e => { e.currentTarget.style.opacity = "0.8"; e.currentTarget.style.filter = "grayscale(0.5) brightness(1.4) contrast(0.8)"; }}
-                  onMouseLeave={e => { e.currentTarget.style.opacity = "0.45"; e.currentTarget.style.filter = "grayscale(1) brightness(1.6) contrast(0.6)"; }}
+                  onMouseEnter={e => { e.currentTarget.style.opacity = "0.7"; }}
+                  onMouseLeave={e => { e.currentTarget.style.opacity = "0.4"; }}
                 />
               ))}
             </div>
