@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { useAuth } from "@/auth/AuthProvider";
 import { Button } from "@/components/ui/button";
-import { LogIn, LayoutDashboard } from "lucide-react";
+import { LogIn } from "lucide-react";
 import { ThemeToggle } from "@/components/ThemeToggle";
 
 const NAV_LINKS = [
@@ -50,14 +50,7 @@ export function SiteNav() {
         {/* CTA + Theme */}
         <div className="flex items-center gap-2">
           <ThemeToggle />
-        {session ? (
-          <Button asChild size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90 font-sans font-medium">
-            <Link to="/hub">
-              <LayoutDashboard className="w-4 h-4 mr-2" />
-              Hub
-            </Link>
-          </Button>
-        ) : (
+        {!session && (
           <Button asChild variant="outline" size="sm" className="border-border text-foreground hover:bg-secondary font-sans font-medium">
             <Link to="/login">
               <LogIn className="w-4 h-4 mr-2" />
