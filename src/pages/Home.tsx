@@ -391,8 +391,8 @@ export default function Home() {
       <section>
         <div style={sectionPad}>
           <FadeIn>
-            <p style={sectionHeader}>NEVER WALK INTO A MEETING UNINFORMED</p>
-            <h2 style={h2Style}>Purpose-built tools for executive preparation and competitive awareness.</h2>
+            <p style={sectionHeader}>WHAT I BUILD WHEN I SEE A GAP</p>
+            <h2 style={h2Style}>I don't just identify operational bottlenecks. I eliminate them.</h2>
           </FadeIn>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 460px), 1fr))", gap: 20 }}>
             <FadeIn>
@@ -400,6 +400,9 @@ export default function Home() {
                 <h3 style={{ fontFamily: font, fontWeight: 700, fontSize: 19, letterSpacing: "0.03em", color: C.text, marginBottom: 14 }}>
                   Pre-Call Intelligence Briefing Engine
                 </h3>
+                <p style={{ fontFamily: font, fontWeight: 400, fontSize: 13, lineHeight: 1.65, color: C.sky, fontStyle: "italic", marginBottom: 12 }}>
+                  Built to solve a problem I've seen at every company: leaders walking into meetings unprepared because nobody had time to pull the research.
+                </p>
                 <p style={{ fontFamily: font, fontWeight: 400, fontSize: 15, lineHeight: 1.75, color: C.muted }}>
                   AI-powered research automation that builds comprehensive briefing documents before every meeting — company background, key players, organizational structure, recent news, strategic context. Transforms hours of manual prep into minutes of structured intelligence.
                 </p>
@@ -410,6 +413,9 @@ export default function Home() {
                 <h3 style={{ fontFamily: font, fontWeight: 700, fontSize: 19, letterSpacing: "0.03em", color: C.text, marginBottom: 14 }}>
                   AR Intelligence Dashboard
                 </h3>
+                <p style={{ fontFamily: font, fontWeight: 400, fontSize: 13, lineHeight: 1.65, color: C.sky, fontStyle: "italic", marginBottom: 12 }}>
+                  Built because competitive intelligence was always the first thing cut when analyst capacity got tight.
+                </p>
                 <p style={{ fontFamily: font, fontWeight: 400, fontSize: 15, lineHeight: 1.75, color: C.muted }}>
                   Continuous competitive and market intelligence monitoring. Automated analysis of market signals, competitive moves, and strategic indicators that keep leadership informed without dedicating analyst headcount to monitoring.
                 </p>
