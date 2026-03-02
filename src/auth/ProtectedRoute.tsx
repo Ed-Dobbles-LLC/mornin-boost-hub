@@ -1,8 +1,10 @@
 import { Navigate, useLocation } from "react-router-dom";
 import { useAuth } from "./AuthProvider";
 
+const ALLOWED_EMAILS = ["ed@dobbles.ai"];
+
 export function ProtectedRoute({ children }: { children: React.ReactNode }) {
-  const { session, loading } = useAuth();
+  const { session, user, loading, signOut } = useAuth();
   const location = useLocation();
 
   if (loading) {
@@ -15,6 +17,11 @@ export function ProtectedRoute({ children }: { children: React.ReactNode }) {
 
   if (!session) {
     return <Navigate to="/login" state={{ from: location }} replace />;
+  }
+
+  if (!user?.email || !ALLOWED_EMAILS.includes(user.email.toLowerCase())) {
+    signOut();
+    return <Navigate to="/login" replace />;
   }
 
   return <>{children}</>;
