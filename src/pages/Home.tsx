@@ -339,7 +339,7 @@ export default function Home() {
           </FadeIn>
           <FadeIn>
             <p style={{ fontFamily: font, fontWeight: 400, fontSize: 16, lineHeight: 1.85, color: C.muted, maxWidth: 820, marginBottom: 56 }}>
-              Every analytics organization I've led hits the same bottlenecks. This framework maps the entire analytics lifecycle and identifies where AI amplifies human judgment rather than replacing it. Technology-agnostic, governance-included, and ready to deploy from Day 1.
+              After building analytics functions at four Fortune 500 companies, I kept solving the same problems. So I mapped the entire analytics lifecycle into an eight-layer operating model — identifying exactly where AI amplifies human judgment and where it doesn't. This isn't a product. It's how I think about building analytics organizations.
             </p>
           </FadeIn>
 
@@ -379,7 +379,7 @@ export default function Home() {
 
           <FadeIn>
             <p style={{ fontFamily: font, fontWeight: 400, fontSize: 15, lineHeight: 1.8, color: C.muted, marginTop: 56, fontStyle: "italic", maxWidth: 820 }}>
-              This isn't a product pitch. It's how I think about building analytics organizations. The framework travels with me — adaptable to your data, your stack, your governance requirements.
+              The framework travels with me — adaptable to your data, your stack, your governance requirements.
             </p>
           </FadeIn>
         </div>
