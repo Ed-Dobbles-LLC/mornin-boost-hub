@@ -88,6 +88,29 @@ export default function Contact() {
           ))}
         </div>
 
+        {/* Calendar Booking */}
+        <div className="mb-16">
+          <h2 className="font-serif text-2xl text-foreground mb-2">Schedule a conversation</h2>
+          <p className="font-sans text-sm text-muted-foreground mb-6">
+            Pick a time that works — 30 minutes, no strings attached.
+          </p>
+          <iframe
+            src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1CHTVn9Jc_7eFYIpfJJSFQoTsaejUtT3WgR4iymHpyhikUZPMmVLTYtFed2VLZzhcEwW4fjq8o?gv=true"
+            width="100%"
+            height={600}
+            style={{ border: 0 }}
+            title="Schedule a conversation"
+          />
+        </div>
+
+        {/* Divider */}
+        <div className="mb-16 relative flex items-center justify-center">
+          <div className="w-full border-t border-border" />
+          <span className="absolute bg-background px-4 font-sans text-xs text-muted-foreground uppercase tracking-widest">
+            or
+          </span>
+        </div>
+
         {/* Form */}
         <div className="max-w-xl">
           <h2 className="font-serif text-2xl text-foreground mb-8">Send a message</h2>
