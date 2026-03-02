@@ -144,6 +144,17 @@ const divider: React.CSSProperties = {
   margin: 0,
 };
 
+/* ── Logo strip data ── */
+const LOGOS = [
+  { src: "/logo-diageo.png", alt: "Diageo" },
+  { src: "/logo-bestbuy.jpg", alt: "Best Buy" },
+  { src: "/logo-hrblock.png", alt: "H&R Block" },
+  { src: "/logo-supervalu.png", alt: "SuperValu" },
+  { src: "/logo-michigan-state.png", alt: "Michigan State University" },
+  { src: "/logo-wisconsin.png", alt: "University of Wisconsin-Madison" },
+  { src: "/logo-rutgers.png", alt: "Rutgers University" },
+];
+
 /* ── LinkedIn SVG ── */
 function LinkedInIcon({ size = 20, color = C.muted }: { size?: number; color?: string }) {
   return (
@@ -183,18 +194,40 @@ export default function Home() {
             </a>
           </div>
 
-          {/* Identity — left-aligned */}
+          {/* Identity — left-aligned with headshot */}
           <FadeIn>
-            <div style={{ maxWidth: 740 }}>
-              <h1 style={{ fontFamily: font, fontWeight: 700, fontSize: "clamp(44px, 7vw, 76px)", letterSpacing: "0.03em", lineHeight: 1.08, marginBottom: 20, color: C.text }}>
-                Ed Dobbles
-              </h1>
-              <p style={{ fontFamily: font, fontWeight: 700, fontSize: "clamp(13px, 1.8vw, 16px)", letterSpacing: "0.10em", textTransform: "uppercase", color: C.red, marginBottom: 28 }}>
-                Chief Analytics Officer&ensp;|&ensp;Chief Data Officer&ensp;|&ensp;VP of Analytics
-              </p>
-              <p style={{ fontFamily: font, fontWeight: 400, fontSize: "clamp(16px, 2vw, 19px)", lineHeight: 1.75, color: C.muted, maxWidth: 620 }}>
-                <span style={{ color: C.text, fontWeight: 700 }}>The Geek that can Speak</span> — 25 years transforming data into competitive advantage for Fortune 500 companies. I don't just talk about AI-powered analytics. I build it.
-              </p>
+            <div style={{ display: "flex", alignItems: "flex-start", gap: "clamp(32px, 5vw, 56px)", flexWrap: "wrap" }}>
+              {/* Text block */}
+              <div style={{ flex: "1 1 400px", minWidth: 0 }}>
+                <h1 style={{ fontFamily: font, fontWeight: 700, fontSize: "clamp(44px, 7vw, 76px)", letterSpacing: "0.03em", lineHeight: 1.08, marginBottom: 20, color: C.text }}>
+                  Ed Dobbles
+                </h1>
+                <p style={{ fontFamily: font, fontWeight: 700, fontSize: "clamp(13px, 1.8vw, 16px)", letterSpacing: "0.10em", textTransform: "uppercase", color: C.red, marginBottom: 12 }}>
+                  Chief Analytics Officer&ensp;|&ensp;Chief Data Officer&ensp;|&ensp;VP of Analytics
+                </p>
+                <p style={{ fontFamily: font, fontWeight: 400, fontSize: 13, color: C.sky, marginBottom: 24, letterSpacing: "0.02em" }}>
+                  DBA, Rutgers University
+                </p>
+                <p style={{ fontFamily: font, fontWeight: 400, fontSize: "clamp(16px, 2vw, 19px)", lineHeight: 1.75, color: C.muted, maxWidth: 620 }}>
+                  <span style={{ color: C.text, fontWeight: 700 }}>The Geek that can Speak</span> — 25 years transforming data into competitive advantage for Fortune 500 companies. I don't just talk about AI-powered analytics. I build it.
+                </p>
+              </div>
+              {/* Headshot */}
+              <div style={{ flex: "0 0 auto", alignSelf: "center" }}>
+                <img
+                  src="/headshot.jpg"
+                  alt="Ed Dobbles"
+                  style={{
+                    width: "clamp(140px, 18vw, 200px)",
+                    height: "clamp(140px, 18vw, 200px)",
+                    borderRadius: "50%",
+                    objectFit: "cover",
+                    objectPosition: "center 20%",
+                    border: `3px solid ${C.border}`,
+                    flexShrink: 0,
+                  }}
+                />
+              </div>
             </div>
           </FadeIn>
 
@@ -217,6 +250,43 @@ export default function Home() {
                     {p.label}
                   </div>
                 </div>
+              ))}
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      <div style={divider} />
+
+      {/* ═══ LOGO STRIP ═══ */}
+      <section>
+        <div style={{ ...sectionPad, paddingTop: 56, paddingBottom: 56 }}>
+          <FadeIn>
+            <div style={{
+              display: "flex",
+              flexWrap: "wrap",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: "clamp(24px, 4vw, 48px)",
+              rowGap: 24,
+            }}>
+              {LOGOS.map((logo) => (
+                <img
+                  key={logo.alt}
+                  src={logo.src}
+                  alt={logo.alt}
+                  style={{
+                    height: "clamp(28px, 4vw, 40px)",
+                    width: "auto",
+                    maxWidth: 140,
+                    objectFit: "contain",
+                    filter: "grayscale(1) brightness(1.6) contrast(0.6)",
+                    opacity: 0.45,
+                    transition: "opacity 0.2s, filter 0.2s",
+                  }}
+                  onMouseEnter={e => { e.currentTarget.style.opacity = "0.8"; e.currentTarget.style.filter = "grayscale(0.5) brightness(1.4) contrast(0.8)"; }}
+                  onMouseLeave={e => { e.currentTarget.style.opacity = "0.45"; e.currentTarget.style.filter = "grayscale(1) brightness(1.6) contrast(0.6)"; }}
+                />
               ))}
             </div>
           </FadeIn>
@@ -359,7 +429,7 @@ export default function Home() {
             </p>
           </FadeIn>
           <FadeIn>
-            <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 16, marginBottom: 36 }}>
+            <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 16, marginBottom: 20 }}>
               <a
                 href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3i0I4YfvjPviD-BuYBOrydiCoKdoMEmFfyqRVSZWrW8e28BlZFToC-bqI1PXJEsd9HpzAhZ54p?gv=true"
                 target="_blank"
@@ -392,6 +462,24 @@ export default function Home() {
                 Send an Email
               </a>
             </div>
+            <div style={{ marginBottom: 36 }}>
+              <a
+                href="/Ed_Dobbles_Resume.docx"
+                download
+                style={{
+                  fontFamily: font, fontWeight: 600, fontSize: 13,
+                  color: C.muted,
+                  textDecoration: "none",
+                  borderBottom: `1px solid ${C.divider}`,
+                  paddingBottom: 2,
+                  transition: "color 0.2s, border-color 0.2s",
+                }}
+                onMouseEnter={e => { e.currentTarget.style.color = C.text; e.currentTarget.style.borderColor = C.text; }}
+                onMouseLeave={e => { e.currentTarget.style.color = C.muted; e.currentTarget.style.borderColor = C.divider; }}
+              >
+                ↓ Download Resume
+              </a>
+            </div>
             <a
               href="https://linkedin.com/in/ed-dobbles"
               target="_blank"
@@ -415,11 +503,8 @@ export default function Home() {
           <p style={{ fontFamily: font, fontWeight: 700, fontSize: 14, color: C.text, marginBottom: 6 }}>
             Ed Dobbles
           </p>
-          <p style={{ fontFamily: font, fontWeight: 400, fontSize: 13, color: C.muted, marginBottom: 4 }}>
-            Minneapolis-St. Paul Metro
-          </p>
           <p style={{ fontFamily: font, fontWeight: 400, fontSize: 13, color: C.muted, marginBottom: 28 }}>
-            Doctor of Business Administration — Rutgers University
+            Minneapolis-St. Paul Metro
           </p>
           <p style={{ fontFamily: font, fontWeight: 400, fontSize: 11, color: "rgba(247,251,254,0.25)" }}>
             &copy; 2026 Dobbles.AI
