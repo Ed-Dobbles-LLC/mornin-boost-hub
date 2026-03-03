@@ -100,4 +100,28 @@ export const PROJECTS: Project[] = [
       "Real-time outlet scoring via API",
     ],
   },
+  {
+    slug: "command-brief",
+    name: "Command Brief",
+    tagline: "Personal ops intelligence — scans your digital ecosystem, extracts tasks, delivers a daily prioritized brief.",
+    tags: ["Generative AI", "Automation", "Productivity"],
+    status: "Live",
+    problem:
+      "Action items scatter across Gmail, Calendar, Drive, and meeting transcripts. Nothing connects them. Tasks slip, context is lost, and the executive operating picture is always incomplete.",
+    users: "Senior leaders managing high-volume decision flow across multiple communication channels.",
+    approach:
+      "Scheduled scans pull from Gmail, Google Calendar, Drive, and Fireflies. Claude extracts tasks, assigns priority and projects, detects staleness, and generates a daily HTML brief. A live HTMX dashboard provides real-time triage with quick-capture for on-the-fly thoughts.",
+    outcomes: [
+      "Unified task extraction across 4 source systems — zero manual entry",
+      "AI-prioritized daily brief delivered at 4 AM CT",
+      "Live dashboard with filters, project scoreboard, and one-click triage",
+      "57/57 integration tests passing across full pipeline",
+    ],
+    roadmap: [
+      "Google OAuth token flow for multi-user deployment",
+      "Audio brief via ElevenLabs TTS",
+      "Slack and Teams source connectors",
+      "Weekly trend analysis and workload forecasting",
+    ],
+  },
 ];
