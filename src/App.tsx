@@ -15,6 +15,7 @@ import ProjectDetail from "./pages/ProjectDetail";
 import Contact       from "./pages/Contact";
 import Login         from "./pages/Login";
 import Hub           from "./pages/Hub";
+import MIP           from "./pages/MIP";
 import NotFound      from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -40,6 +41,11 @@ const App = () => (
             <Route path="/hub" element={
               <ProtectedRoute>
                 <Hub />
+              </ProtectedRoute>
+            } />
+            <Route path="/mip" element={
+              <ProtectedRoute>
+                <MIP />
               </ProtectedRoute>
             } />
 
