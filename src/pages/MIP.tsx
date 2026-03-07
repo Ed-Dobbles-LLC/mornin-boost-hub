@@ -21,6 +21,7 @@ import {
   Building2,
   FileText,
   Calendar,
+  Settings2,
 } from "lucide-react";
 
 const MIP_API = "https://mip-service-production.up.railway.app";
@@ -185,6 +186,16 @@ export default function MIP() {
                     Run Extract
                   </Button>
                 </div>
+
+                <Link to="/mip/brands">
+                  <Button
+                    variant="outline"
+                    className="w-full border-border/60 text-muted-foreground hover:text-foreground hover:border-primary/40 font-sans font-medium"
+                  >
+                    <Settings2 className="w-4 h-4 mr-2" />
+                    Configure Brands
+                  </Button>
+                </Link>
 
                 {selectedMarketObj && (
                   <div className="mt-2 p-3 rounded-lg bg-background/50 border border-border/30">
