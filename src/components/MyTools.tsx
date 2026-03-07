@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -5,6 +6,7 @@ import {
   Mic,
   Crown,
   BarChart3,
+  Wine,
   ExternalLink,
 } from "lucide-react";
 
@@ -45,6 +47,13 @@ const tools: Tool[] = [
     icon: <BarChart3 size={22} />,
     status: "live",
   },
+  {
+    name: "Menu Intelligence",
+    description: "Brand penetration analysis across restaurant menus",
+    url: "/mip",
+    icon: <Wine size={22} />,
+    status: "live",
+  },
 ];
 
 export const MyTools = () => {
@@ -52,34 +61,44 @@ export const MyTools = () => {
     <Card className="p-6 shadow-soft border-border/50">
       <h2 className="text-2xl font-semibold mb-6 text-foreground">My Tools</h2>
       <div className="space-y-3">
-        {tools.map((tool) => (
-          <a
-            key={tool.name}
-            href={tool.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-4 p-4 rounded-lg border border-border/50 hover:border-primary/40 hover:shadow-soft transition-all duration-200 group"
-          >
-            <div className="flex-shrink-0 text-primary">{tool.icon}</div>
-            <div className="flex-1 min-w-0">
-              <div className="flex items-center gap-2">
-                <span className="font-sans font-medium text-foreground text-sm">
-                  {tool.name}
-                </span>
-                <Badge
-                  variant="secondary"
-                  className="text-[10px] px-1.5 py-0 uppercase tracking-wider"
-                >
-                  {tool.status}
-                </Badge>
+        {tools.map((tool) => {
+          const isInternal = tool.url.startsWith("/");
+          const className = "flex items-center gap-4 p-4 rounded-lg border border-border/50 hover:border-primary/40 hover:shadow-soft transition-all duration-200 group";
+          const content = (
+            <>
+              <div className="flex-shrink-0 text-primary">{tool.icon}</div>
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-2">
+                  <span className="font-sans font-medium text-foreground text-sm">
+                    {tool.name}
+                  </span>
+                  <Badge
+                    variant="secondary"
+                    className="text-[10px] px-1.5 py-0 uppercase tracking-wider"
+                  >
+                    {tool.status}
+                  </Badge>
+                </div>
+                <p className="font-sans text-xs text-muted-foreground mt-0.5 truncate">
+                  {tool.description}
+                </p>
               </div>
-              <p className="font-sans text-xs text-muted-foreground mt-0.5 truncate">
-                {tool.description}
-              </p>
-            </div>
-            <ExternalLink className="w-4 h-4 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
-          </a>
-        ))}
+              {!isInternal && (
+                <ExternalLink className="w-4 h-4 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
+              )}
+            </>
+          );
+
+          return isInternal ? (
+            <Link key={tool.name} to={tool.url} className={className}>
+              {content}
+            </Link>
+          ) : (
+            <a key={tool.name} href={tool.url} target="_blank" rel="noopener noreferrer" className={className}>
+              {content}
+            </a>
+          );
+        })}
       </div>
     </Card>
   );

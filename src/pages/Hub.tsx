@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { useAuth } from "@/auth/AuthProvider";
 import { useNavigate, Link } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
-import { LogOut, Globe } from "lucide-react";
+import { LogOut, Globe, Wine } from "lucide-react";
 import { ThemeToggle } from "@/components/ThemeToggle";
 
 const CATEGORIES = ["Vegetarian", "Vegan", "Seafood"];
@@ -75,6 +75,12 @@ export default function Hub() {
           </div>
           <div className="flex items-center gap-3">
             <ThemeToggle />
+            <Link
+              to="/mip"
+              className="inline-flex items-center gap-1.5 font-sans text-sm text-muted-foreground hover:text-foreground transition-colors"
+            >
+              <Wine className="w-4 h-4" /> MIP
+            </Link>
             <Link
               to="/"
               className="inline-flex items-center gap-1.5 font-sans text-sm text-muted-foreground hover:text-foreground transition-colors"
