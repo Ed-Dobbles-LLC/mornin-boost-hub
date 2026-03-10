@@ -454,6 +454,23 @@ export default function Home() {
                 Download Resume
               </a>
               <a
+                href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1CHTVn9Jc_7eFYIpfJJSFQoTsaejUtT3WgR4iymHpyhikUZPMmVLTYtFed2VLZzhcEwW4fjq8o?gv=true"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  fontFamily: font, fontWeight: 700, fontSize: 14,
+                  backgroundColor: "transparent", color: C.red,
+                  border: `2px solid ${C.red}`,
+                  padding: "12px 36px", borderRadius: 4,
+                  textDecoration: "none",
+                  transition: "background-color 0.2s, color 0.2s",
+                }}
+                onMouseEnter={e => { e.currentTarget.style.backgroundColor = C.red; e.currentTarget.style.color = C.text; }}
+                onMouseLeave={e => { e.currentTarget.style.backgroundColor = "transparent"; e.currentTarget.style.color = C.red; }}
+              >
+                Schedule Time with Me
+              </a>
+              <a
                 href="mailto:Ed@Dobbles.AI"
                 style={{
                   fontFamily: font, fontWeight: 700, fontSize: 14,
