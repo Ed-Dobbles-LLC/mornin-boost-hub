@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { supabase } from "@/integrations/supabase/client";
 
 // ─── Design System ────────────────────────────────────────────────────────────
 const C = {
@@ -989,7 +990,15 @@ function CoachTab() {
 }
 
 // ─── PIPELINE SCORECARD TAB ──────────────────────────────────────────────────
-const MIP_ADMIN_HEADERS = { "x-admin-key": "mip-admin-2026", "Content-Type": "application/json" };
+// Admin key lives server-side only (server.js); the client authenticates as
+// the logged-in Supabase user and the server-side proxy attaches the key.
+async function mipAdminHeaders(): Promise<HeadersInit> {
+  const { data: { session } } = await supabase.auth.getSession();
+  return {
+    "Content-Type": "application/json",
+    ...(session?.access_token ? { Authorization: `Bearer ${session.access_token}` } : {}),
+  };
+}
 const POLL_MS = 5 * 60 * 1000;
 
 interface WaterfallStage { label: string; count: number; pct: number }
@@ -1019,7 +1028,7 @@ function PipelineTab() {
 
     // Health (fast ~1s) — isolated try/catch
     try {
-      const hRes = await fetch(`${MIP_API}/health`, { headers: MIP_ADMIN_HEADERS });
+      const hRes = await fetch(`/api/mip-proxy/health`, { headers: await mipAdminHeaders() });
       if (hRes.ok) {
         const hd = await hRes.json();
         setHealth({
@@ -1040,7 +1049,7 @@ function PipelineTab() {
 
     // Pipeline snapshot (slow ~45s) — waterfall + backfill in one call
     try {
-      const sRes = await fetch(`${MIP_API}/api/pipeline/snapshot`, { headers: MIP_ADMIN_HEADERS });
+      const sRes = await fetch(`/api/mip-proxy/pipeline-snapshot`, { headers: await mipAdminHeaders() });
       if (sRes.ok) {
         const snap = await sRes.json();
 
