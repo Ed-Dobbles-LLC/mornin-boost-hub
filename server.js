@@ -1,4 +1,5 @@
 import express from "express";
+import compression from "compression";
 import path from "path";
 import { fileURLToPath } from "url";
 
@@ -23,6 +24,7 @@ const PROXY_ROUTES = {
 };
 
 const app = express();
+app.use(compression());
 
 async function requireAuthorizedUser(req, res) {
   const authHeader = req.get("authorization") || "";
