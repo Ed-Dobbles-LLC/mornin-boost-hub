@@ -4,6 +4,7 @@ import { RecipeCard, Recipe } from "@/components/RecipeCard";
 import { VocabBox } from "@/components/VocabBox";
 import { FactBox, FactBoxRef } from "@/components/FactBox";
 import { HeadlinesBox } from "@/components/HeadlinesBox";
+import { BriefingBox } from "@/components/BriefingBox";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/auth/AuthProvider";
 import { useNavigate, Link } from "react-router-dom";
@@ -111,6 +112,11 @@ export default function Hub() {
 
       {/* Dashboard content */}
       <div className="max-w-7xl mx-auto px-6 py-8">
+        {/* Daily Briefing — newsletters, summarized */}
+        <div className="mb-6">
+          <BriefingBox />
+        </div>
+
         {/* Top Row */}
         <div className="grid lg:grid-cols-2 gap-6 mb-6">
           <LaunchButtons />
