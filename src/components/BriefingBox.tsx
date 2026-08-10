@@ -21,6 +21,11 @@ interface Edition {
   headlines: Item[];
 }
 
+interface Dog {
+  src: string;
+  caption: string;
+}
+
 interface Section {
   masthead: string;
   headline_count: number;
@@ -30,6 +35,7 @@ interface Section {
 export const BriefingBox = () => {
   const [sections, setSections] = useState<Section[]>([]);
   const [total, setTotal] = useState(0);
+  const [dogs, setDogs] = useState<Dog[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [days, setDays] = useState(3);
@@ -46,6 +52,7 @@ export const BriefingBox = () => {
       const data = await res.json();
       setSections(data.sections || []);
       setTotal(data.total_headlines || 0);
+      setDogs((data.dogs && data.dogs.pictures) || []);
     } catch (err) {
       console.error("Briefing fetch failed", err);
       setError("Briefing unavailable");
@@ -115,6 +122,31 @@ export const BriefingBox = () => {
           <p className="font-sans text-sm text-muted-foreground py-4">
             Nothing in the last {days} day{days > 1 ? "s" : ""}. Try a wider window.
           </p>
+        )}
+
+        {dogs.length > 0 && (
+          <div className="mb-6">
+            <div className="flex items-baseline justify-between border-b border-border pb-2 mb-3">
+              <h3 className="font-sans text-xs font-semibold tracking-widest uppercase text-foreground">
+                Dogs
+              </h3>
+              <span className="font-sans text-[11px] text-muted-foreground">
+                {dogs.length}
+              </span>
+            </div>
+            <div className="grid grid-cols-3 md:grid-cols-6 gap-3">
+              {dogs.map((d, i) => (
+                <img
+                  key={i}
+                  src={d.src}
+                  alt={d.caption}
+                  title={d.caption}
+                  loading="lazy"
+                  className="w-full aspect-square object-cover rounded-lg border border-border"
+                />
+              ))}
+            </div>
+          </div>
         )}
 
         <div className="grid md:grid-cols-2 gap-x-8 gap-y-6">
