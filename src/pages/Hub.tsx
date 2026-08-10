@@ -1,24 +1,17 @@
 import { LaunchButtons } from "@/components/LaunchButtons";
 import { MyTools } from "@/components/MyTools";
-import { RecipeCard, Recipe } from "@/components/RecipeCard";
-import { VocabBox } from "@/components/VocabBox";
-import { FactBox, FactBoxRef } from "@/components/FactBox";
 import { HeadlinesBox } from "@/components/HeadlinesBox";
 import { BriefingBox } from "@/components/BriefingBox";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/auth/AuthProvider";
 import { useNavigate, Link } from "react-router-dom";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { LogOut, Globe, Wine } from "lucide-react";
-
-const CATEGORIES = ["Vegetarian", "Vegan", "Seafood"];
 
 export default function Hub() {
   const { signOut } = useAuth();
   const navigate = useNavigate();
   const [greeting, setGreeting] = useState("");
-  const [recipe, setRecipe] = useState<Recipe | null>(null);
-  const factBoxRef = useRef<FactBoxRef>(null);
 
   useEffect(() => {
     const updateGreeting = () => {
@@ -27,26 +20,6 @@ export default function Hub() {
     };
     updateGreeting();
     const iv = setInterval(updateGreeting, 60000);
-    return () => clearInterval(iv);
-  }, []);
-
-  const fetchRecipe = async () => {
-    try {
-      const cat = CATEGORIES[Math.floor(Math.random() * CATEGORIES.length)];
-      const listRes = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${cat}`);
-      const { meals } = await listRes.json();
-      const pick = meals[Math.floor(Math.random() * meals.length)];
-      const detailRes = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${pick.idMeal}`);
-      const { meals: full } = await detailRes.json();
-      setRecipe(full[0]);
-    } catch (e) {
-      console.error("Failed to fetch recipe", e);
-    }
-  };
-
-  useEffect(() => {
-    fetchRecipe();
-    const iv = setInterval(fetchRecipe, 20000);
     return () => clearInterval(iv);
   }, []);
 
@@ -120,57 +93,12 @@ export default function Hub() {
         {/* Top Row */}
         <div className="grid lg:grid-cols-2 gap-6 mb-6">
           <LaunchButtons />
-          <div className="space-y-6">
-            <MyTools />
-            <VocabBox />
-          </div>
+          <MyTools />
         </div>
 
-        {/* Middle Row */}
-        <div className="grid lg:grid-cols-2 gap-6 mb-6 items-stretch">
-          <div className="flex flex-col">
-            <div className="flex justify-between items-center mb-4">
-              <h2 className="font-serif text-xl text-foreground">Healthy Recipe</h2>
-              <Button
-                onClick={fetchRecipe}
-                size="sm"
-                className="bg-primary text-primary-foreground hover:bg-primary/90 font-sans font-medium"
-              >
-                Next Recipe
-              </Button>
-            </div>
-            <div className="flex-1">
-              {recipe ? (
-                <RecipeCard recipe={recipe} />
-              ) : (
-                <div className="flex items-center justify-center h-full bg-card border border-border rounded-xl min-h-80">
-                  <div className="flex items-center gap-2 text-muted-foreground font-sans text-sm">
-                    <div className="w-4 h-4 border-2 border-primary border-t-transparent rounded-full animate-spin" />
-                    Loading recipe…
-                  </div>
-                </div>
-              )}
-            </div>
-          </div>
-
-          <div className="space-y-5 flex flex-col">
-            <div className="flex-shrink-0">
-              <div className="flex justify-between items-center mb-4">
-                <h2 className="font-serif text-xl text-foreground">Random Facts</h2>
-                <Button
-                  onClick={() => factBoxRef.current?.fetchFact()}
-                  size="sm"
-                  className="bg-primary text-primary-foreground hover:bg-primary/90 font-sans font-medium"
-                >
-                  Next Fact
-                </Button>
-              </div>
-              <FactBox ref={factBoxRef} />
-            </div>
-            <div className="flex-1">
-              <HeadlinesBox />
-            </div>
-          </div>
+        {/* Headlines */}
+        <div className="mb-6">
+          <HeadlinesBox />
         </div>
       </div>
 
