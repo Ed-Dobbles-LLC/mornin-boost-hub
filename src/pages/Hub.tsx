@@ -85,15 +85,15 @@ export default function Hub() {
 
       {/* Dashboard content */}
       <div className="max-w-7xl mx-auto px-6 py-8">
-        {/* Daily Briefing — newsletters, summarized */}
-        <div className="mb-6">
-          <BriefingBox />
-        </div>
-
-        {/* Top Row */}
+        {/* Launch */}
         <div className="grid lg:grid-cols-2 gap-6 mb-6">
           <LaunchButtons />
           <MyTools />
+        </div>
+
+        {/* Daily Briefing — newsletters, summarized */}
+        <div className="mb-6">
+          <BriefingBox />
         </div>
 
         {/* Headlines */}
