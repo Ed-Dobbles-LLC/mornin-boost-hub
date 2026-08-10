@@ -26,6 +26,12 @@ interface Dog {
   caption: string;
 }
 
+interface Clip {
+  headline: string;
+  summary: string;
+  source: string;
+}
+
 interface Section {
   masthead: string;
   headline_count: number;
@@ -36,6 +42,7 @@ export const BriefingBox = () => {
   const [sections, setSections] = useState<Section[]>([]);
   const [total, setTotal] = useState(0);
   const [dogs, setDogs] = useState<Dog[]>([]);
+  const [clips, setClips] = useState<Clip[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [days, setDays] = useState(3);
@@ -53,6 +60,7 @@ export const BriefingBox = () => {
       setSections(data.sections || []);
       setTotal(data.total_headlines || 0);
       setDogs((data.dogs && data.dogs.pictures) || []);
+      setClips((data.clips && data.clips.clips) || []);
     } catch (err) {
       console.error("Briefing fetch failed", err);
       setError("Briefing unavailable");
@@ -146,6 +154,32 @@ export const BriefingBox = () => {
                 />
               ))}
             </div>
+          </div>
+        )}
+
+        {clips.length > 0 && (
+          <div className="mb-6">
+            <div className="flex items-baseline justify-between border-b border-border pb-2 mb-3">
+              <h3 className="font-sans text-xs font-semibold tracking-widest uppercase text-foreground">
+                Industry Clips
+              </h3>
+              <span className="font-sans text-[11px] text-muted-foreground">
+                {clips.length}
+              </span>
+            </div>
+            <ul className="grid md:grid-cols-2 gap-x-8 gap-y-3">
+              {clips.map((c, i) => (
+                <li key={i} className="leading-snug">
+                  <span className="font-sans text-sm text-foreground">
+                    {c.headline}
+                  </span>
+                  <p className="font-sans text-xs text-muted-foreground mt-1">
+                    {c.summary ? `${c.summary} ` : ""}
+                    <span className="text-primary">{c.source}</span>
+                  </p>
+                </li>
+              ))}
+            </ul>
           </div>
         )}
 
