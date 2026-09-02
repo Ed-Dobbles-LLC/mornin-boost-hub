@@ -3,8 +3,6 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import {
   Briefcase,
-  Mic,
-  Crown,
   BarChart3,
   Wine,
   ListChecks,
@@ -26,20 +24,6 @@ const tools: Tool[] = [
     description: "Job search tracking & pipeline",
     url: "https://job-hunt-production-f825.up.railway.app/dashboard",
     icon: <Briefcase size={22} />,
-    status: "live",
-  },
-  {
-    name: "Personal Podcasts",
-    description: "Podcast management & analytics",
-    url: "https://personal-podcasts-production.up.railway.app",
-    icon: <Mic size={22} />,
-    status: "live",
-  },
-  {
-    name: "Chess Coach",
-    description: "Chess training & game analysis",
-    url: "https://chess-coach-production.up.railway.app",
-    icon: <Crown size={22} />,
     status: "live",
   },
   {
