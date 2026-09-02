@@ -15,7 +15,7 @@ Two apps in one repo, sharing components:
 **Private hub** — `/hub` (behind Supabase magic-link auth)
 - Widgets: LaunchButtons (quick-launch grid), MyTools (Railway app links), VocabBox (Supabase-backed, 364 words), RecipeCard (TheMealDB API), FactBox (uselessfacts API), HeadlinesBox (Hacker News via edge function)
 - **LaunchButtons** (`src/components/LaunchButtons.tsx`): Grid of icon buttons for Google apps, AI tools, and productivity apps. Each entry has `name`, `url`, `icon`, `color`.
-- **MyTools** (`src/components/MyTools.tsx`): Card list of Railway-hosted tools the user has built (Job Hunt, Personal Podcasts, Chess Coach, AR Intel). Each entry has `name`, `description`, `url`, `icon`, `status`. When the user asks to add a new tool/app, add it here.
+- **MyTools** (`src/components/MyTools.tsx`): Card list of tools the user has built (Job Hunt, AR Intel, Menu Intelligence, AI CPO, Org Chart). Each entry has `name`, `description`, `url`, `icon`, `status`. When the user asks to add a new tool/app, add it here. Note: `status` is a hard-coded literal, not a live reachability check — a tile can read LIVE while its target returns 404. Verify the URL before setting it.
 - All widget components use semantic tokens (`bg-primary`, `bg-accent`, `bg-secondary`, `text-primary`, `text-accent`)
 
 ## Current Deployment
